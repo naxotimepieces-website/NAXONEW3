@@ -299,7 +299,7 @@ function HomePage({navigate}) {
         <div style={{display:"grid",gridTemplateColumns:m?"repeat(2,1fr)":"repeat(3,1fr)",gap:24}}>
           {featured.map((w,i)=>(
             <div key={w.id} onMouseEnter={()=>setHovId(w.id)} onMouseLeave={()=>setHovId(null)} onClick={()=>navigate("shop")} style={{position:"relative",cursor:"pointer",overflow:"hidden",background:BRAND.cream}}>
-              <div style={{width:"100%",paddingBottom:"100%",background:`url('${w.img}') center/cover`,filter:"sepia(0.08)",transition:"transform 0.8s cubic-bezier(0.22,1,0.36,1)",transform:hovId===w.id?"scale(1.05)":"scale(1)"}}/>
+              <div style={{width:"100%",paddingBottom:"100%",background:`url('${w.img}') center 20%/cover`,filter:"sepia(0.08)",transition:"transform 0.8s cubic-bezier(0.22,1,0.36,1)",transform:hovId===w.id?"scale(1.05)":"scale(1)"}}/>
               <div style={{position:"absolute",bottom:0,left:0,right:0,padding:"40px 24px 24px",background:"linear-gradient(transparent,rgba(15,26,48,0.85))"}}>
                 <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:11,color:BRAND.gold,letterSpacing:3,textTransform:"uppercase",marginBottom:6}}>{w.era} · {w.style}</div>
                 <div style={{fontFamily:"'Playfair Display',serif",fontSize:18,color:BRAND.cream,fontWeight:600}}>{w.brand}</div>
@@ -427,7 +427,7 @@ function ShopPage({navigate}) {
           {f.map((w,i)=>(
             <div key={w.id} onMouseEnter={()=>setHovId(w.id)} onMouseLeave={()=>setHovId(null)} onClick={()=>setSel(w)} style={{display:"flex",flexDirection:"column",cursor:"pointer",overflow:"hidden",background:BRAND.cream}}>
               <div style={{width:"100%",paddingBottom:"100%",position:"relative",overflow:"hidden",flexShrink:0}}>
-                <div style={{position:"absolute",inset:0,background:`url('${w.img}') center/cover`,filter:"sepia(0.08)",transition:"transform 0.8s cubic-bezier(0.22,1,0.36,1)",transform:hovId===w.id?"scale(1.05)":"scale(1)"}}/>
+                <div style={{position:"absolute",inset:0,background:`url('${w.img}') center 20%/cover`,filter:"sepia(0.08)",transition:"transform 0.8s cubic-bezier(0.22,1,0.36,1)",transform:hovId===w.id?"scale(1.05)":"scale(1)"}}/>
                 {w.tag&&!w.sold&&<div style={{position:"absolute",top:10,left:10,background:w.tag==="Just In"?BRAND.gold:BRAND.navy,color:w.tag==="Just In"?BRAND.navy:BRAND.gold,fontFamily:"'Cormorant Garamond',serif",fontSize:10,letterSpacing:2,textTransform:"uppercase",padding:"4px 10px",fontWeight:600}}>{w.tag}</div>}
                 {w.sold&&<div style={{position:"absolute",inset:0,background:"rgba(15,26,48,0.35)",display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{fontFamily:"'Playfair Display',serif",fontSize:m?14:18,color:BRAND.cream,letterSpacing:m?4:6,textTransform:"uppercase",padding:m?"8px 18px":"10px 28px",border:"2px solid rgba(245,240,232,0.6)",fontWeight:700}}>Sold</span></div>}
               </div>
@@ -455,9 +455,9 @@ function ShopPage({navigate}) {
     </section>
     {/* Drawer */}
     {sel&&<><div onClick={()=>setSel(null)} style={{position:"fixed",inset:0,zIndex:200,background:"rgba(15,26,48,0.6)",backdropFilter:"blur(4px)",animation:"fadeIn 0.3s ease"}}/>
-    <div style={{position:"fixed",top:0,right:0,bottom:0,zIndex:201,width:m?"100vw":"min(680px,90vw)",background:BRAND.warmWhite,boxShadow:"-20px 0 60px rgba(0,0,0,0.3)",overflowY:"auto",animation:"slideIn 0.4s cubic-bezier(0.22,1,0.36,1)"}}>
+    <div style={{position:"fixed",top:0,right:0,maxHeight:"100vh",zIndex:201,width:m?"100vw":"min(680px,90vw)",background:BRAND.warmWhite,boxShadow:"-20px 0 60px rgba(0,0,0,0.3)",overflowY:"auto",animation:"slideIn 0.4s cubic-bezier(0.22,1,0.36,1)"}}>
       <button onClick={()=>setSel(null)} style={{position:"fixed",top:m?112:20,right:m?16:20,zIndex:210,background:BRAND.navy,border:"none",color:BRAND.cream,width:48,height:48,borderRadius:"50%",cursor:"pointer",fontSize:20,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 4px 16px rgba(0,0,0,0.3)",flexShrink:0}}>✕</button>
-      <div style={{width:"100%",paddingBottom:"100%",position:"relative",background:BRAND.cream,marginTop:0}}><div style={{position:"absolute",inset:0,background:`url('${sel.img}') center/cover`,filter:"sepia(0.08)"}}/></div>
+      <div style={{width:"100%",maxHeight:"70vh",overflow:"hidden",background:BRAND.cream,marginTop:0,display:"flex",alignItems:"center",justifyContent:"center"}}><img src={sel.img} alt={sel.brand+" "+sel.model} style={{width:"100%",height:"auto",maxHeight:"70vh",objectFit:"contain",filter:"sepia(0.08)",display:"block"}}/></div>
       <div style={{padding:m?"32px 24px 80px":"40px 40px 60px"}}>
         <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:4,textTransform:"uppercase",marginBottom:8}}>{sel.era} · {sel.style}</div>
         <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:m?28:36,color:BRAND.navy,fontWeight:700,margin:"0 0 4px"}}>{sel.brand}</h2>
