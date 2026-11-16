@@ -261,7 +261,9 @@ function HomePage({navigate}) {
     {/* HERO */}
     <section style={{position:"relative",minHeight:"100vh",overflow:"hidden",background:BRAND.deepNavy}}>
       {/* Full bleed background image with overlay */}
-      <div style={{position:"absolute",inset:0,backgroundImage:`url('/hero-watches.jpeg')`,backgroundSize:"cover",backgroundPosition:"center",filter:"brightness(0.35) sepia(0.2)"}}/>
+      <div style={{position:"absolute",inset:0,backgroundImage:`url('/hero-watches.jpeg')`,backgroundSize:"cover",backgroundPosition:"center"}}/>
+      {/* Scrim: dark behind the text, photo shows at full strength on the right */}
+      <div style={{position:"absolute",inset:0,background:m?"rgba(15,26,48,0.72)":"linear-gradient(90deg,rgba(15,26,48,0.9) 0%,rgba(15,26,48,0.62) 40%,rgba(15,26,48,0.12) 75%,rgba(15,26,48,0.05) 100%)"}}/>
       {/* Gold grain overlay */}
       <div style={{position:"absolute",inset:0,opacity:0.06,backgroundImage:`radial-gradient(circle at 1px 1px,${BRAND.gold} 1px,transparent 0)`,backgroundSize:"32px 32px"}}/>
       {/* Left side gold accent bar */}
@@ -328,7 +330,7 @@ function HomePage({navigate}) {
         <div style={{display:"grid",gridTemplateColumns:m?"repeat(2,1fr)":"repeat(3,1fr)",gap:24}}>
           {featured.map((w,i)=>(
             <div key={w.id} onMouseEnter={()=>setHovId(w.id)} onMouseLeave={()=>setHovId(null)} onClick={()=>navigate("shop")} style={{position:"relative",cursor:"pointer",overflow:"hidden",background:BRAND.cream}}>
-              <div style={{width:"100%",paddingBottom:"100%",background:`url('${w.img}') center 20%/cover`,filter:"sepia(0.08)",transition:"transform 0.8s cubic-bezier(0.22,1,0.36,1)",transform:hovId===w.id?"scale(1.05)":"scale(1)"}}/>
+              <div style={{width:"100%",paddingBottom:"100%",background:`url('${w.img}') center 20%/cover`,transition:"transform 0.8s cubic-bezier(0.22,1,0.36,1)",transform:hovId===w.id?"scale(1.05)":"scale(1)"}}/>
               <div style={{position:"absolute",bottom:0,left:0,right:0,padding:"40px 24px 24px",background:"linear-gradient(transparent,rgba(15,26,48,0.85))"}}>
                 <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:11,color:BRAND.gold,letterSpacing:3,textTransform:"uppercase",marginBottom:6}}>{w.era} · {w.style}</div>
                 <div style={{fontFamily:"'Playfair Display',serif",fontSize:18,color:BRAND.cream,fontWeight:600}}>{w.brand}</div>
@@ -456,7 +458,7 @@ function ShopPage({navigate}) {
           {f.map((w,i)=>(
             <div key={w.id} onMouseEnter={()=>setHovId(w.id)} onMouseLeave={()=>setHovId(null)} onClick={()=>setSel(w)} style={{display:"flex",flexDirection:"column",cursor:"pointer",overflow:"hidden",background:BRAND.cream}}>
               <div style={{width:"100%",paddingBottom:"100%",position:"relative",overflow:"hidden",flexShrink:0}}>
-                <div style={{position:"absolute",inset:0,background:`url('${w.img}') center 20%/cover`,filter:"sepia(0.08)",transition:"transform 0.8s cubic-bezier(0.22,1,0.36,1)",transform:hovId===w.id?"scale(1.05)":"scale(1)"}}/>
+                <div style={{position:"absolute",inset:0,background:`url('${w.img}') center 20%/cover`,transition:"transform 0.8s cubic-bezier(0.22,1,0.36,1)",transform:hovId===w.id?"scale(1.05)":"scale(1)"}}/>
                 {w.tag&&!w.sold&&<div style={{position:"absolute",top:10,left:10,background:w.tag==="Just In"?BRAND.gold:BRAND.navy,color:w.tag==="Just In"?BRAND.navy:BRAND.gold,fontFamily:"'Cormorant Garamond',serif",fontSize:10,letterSpacing:2,textTransform:"uppercase",padding:"4px 10px",fontWeight:600}}>{w.tag}</div>}
                 {w.sold&&<div style={{position:"absolute",inset:0,background:"rgba(15,26,48,0.35)",display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{fontFamily:"'Playfair Display',serif",fontSize:m?14:18,color:BRAND.cream,letterSpacing:m?4:6,textTransform:"uppercase",padding:m?"8px 18px":"10px 28px",border:"2px solid rgba(245,240,232,0.6)",fontWeight:700}}>Sold</span></div>}
               </div>
@@ -486,7 +488,7 @@ function ShopPage({navigate}) {
     {sel&&<><div onClick={()=>setSel(null)} style={{position:"fixed",inset:0,zIndex:200,background:"rgba(15,26,48,0.6)",backdropFilter:"blur(4px)",animation:"fadeIn 0.3s ease"}}/>
     <div style={{position:"fixed",top:0,right:0,maxHeight:"100vh",zIndex:201,width:m?"100vw":"min(680px,90vw)",background:BRAND.warmWhite,boxShadow:"-20px 0 60px rgba(0,0,0,0.3)",overflowY:"auto",animation:"slideIn 0.4s cubic-bezier(0.22,1,0.36,1)"}}>
       <button onClick={()=>setSel(null)} style={{position:"fixed",top:m?112:20,right:m?16:20,zIndex:210,background:BRAND.navy,border:"none",color:BRAND.cream,width:48,height:48,borderRadius:"50%",cursor:"pointer",fontSize:20,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 4px 16px rgba(0,0,0,0.3)",flexShrink:0}}>✕</button>
-      <div style={{width:"100%",maxHeight:"70vh",overflow:"hidden",background:BRAND.cream,marginTop:0,display:"flex",alignItems:"center",justifyContent:"center"}}><img src={sel.img} alt={sel.brand+" "+sel.model} style={{width:"100%",height:"auto",maxHeight:"70vh",objectFit:"contain",filter:"sepia(0.08)",display:"block"}}/></div>
+      <div style={{width:"100%",maxHeight:"70vh",overflow:"hidden",background:BRAND.cream,marginTop:0,display:"flex",alignItems:"center",justifyContent:"center"}}><img src={sel.img} alt={sel.brand+" "+sel.model} style={{width:"100%",height:"auto",maxHeight:"70vh",objectFit:"contain",display:"block"}}/></div>
       <div style={{padding:m?"32px 24px 80px":"40px 40px 60px"}}>
         <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:4,textTransform:"uppercase",marginBottom:8}}>{sel.era} · {sel.style}</div>
         <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:m?28:36,color:BRAND.navy,fontWeight:700,margin:"0 0 4px"}}>{sel.brand}</h2>
@@ -613,7 +615,7 @@ function JournalPage({navigate}) {
   const filtered=ARTICLES.filter(a=>cat==="All"||a.category===cat);
 
   if(reading) return(<>
-    <section style={{paddingTop:64,background:BRAND.navy}}><div style={{width:"100%",height:"45vh",minHeight:300,background:`url('${reading.img}') center/cover`,filter:"sepia(0.1)",position:"relative"}}><div style={{position:"absolute",inset:0,background:"linear-gradient(transparent 40%,rgba(15,26,48,0.7) 100%)"}}/></div></section>
+    <section style={{paddingTop:64,background:BRAND.navy}}><div style={{width:"100%",height:"45vh",minHeight:300,background:`url('${reading.img}') center/cover`,position:"relative"}}><div style={{position:"absolute",inset:0,background:"linear-gradient(transparent 40%,rgba(15,26,48,0.7) 100%)"}}/></div></section>
     <section style={{background:BRAND.warmWhite,padding:"60px 0 100px"}}><div style={{maxWidth:720,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
       <button onClick={()=>setReading(null)} style={{fontFamily:"'Cormorant Garamond',serif",fontSize:13,color:BRAND.gold,background:"none",border:"none",cursor:"pointer",letterSpacing:2,textTransform:"uppercase",marginBottom:40,padding:0}}>← Back to Journal</button>
       <div style={{display:"flex",gap:12,marginBottom:24}}><span style={{fontFamily:"'Cormorant Garamond',serif",fontSize:11,color:BRAND.navy,letterSpacing:3,textTransform:"uppercase",background:BRAND.cream,padding:"5px 14px",border:`1px solid rgba(26,39,68,0.08)`}}>{reading.category}</span><span style={{fontFamily:"'Cormorant Garamond',serif",fontSize:13,color:BRAND.stone}}>{reading.date} · {reading.readTime}</span></div>
@@ -639,7 +641,7 @@ function JournalPage({navigate}) {
         <div style={{display:"grid",gridTemplateColumns:m?"repeat(2,1fr)":"repeat(3,1fr)",gap:24}}>
           {filtered.map((a,i)=>(
             <Reveal key={a.id} delay={i*0.06}><div onClick={()=>{setReading(a);window.scrollTo(0,0)}} onMouseEnter={()=>setHovId(a.id)} onMouseLeave={()=>setHovId(null)} style={{cursor:"pointer",overflow:"hidden",border:`1px solid ${hovId===a.id?"rgba(201,168,76,0.4)":"rgba(26,39,68,0.06)"}`,background:BRAND.cream,transition:"all 0.5s",transform:hovId===a.id?"translateY(-5px)":"translateY(0)"}}>
-              <div style={{position:"relative",overflow:"hidden"}}><div style={{width:"100%",paddingBottom:"62%",background:`url('${a.img}') center/cover`,filter:"sepia(0.08)",transition:"transform 0.8s cubic-bezier(0.22,1,0.36,1)",transform:hovId===a.id?"scale(1.05)":"scale(1)"}}/><div style={{position:"absolute",bottom:0,left:0,right:0,height:"40%",background:`linear-gradient(transparent,${BRAND.cream})`}}/><div style={{position:"absolute",top:16,left:16,background:"rgba(15,26,48,0.7)",backdropFilter:"blur(4px)",padding:"4px 12px",fontFamily:"'Cormorant Garamond',serif",fontSize:10,color:BRAND.gold,letterSpacing:3,textTransform:"uppercase"}}>{a.category}</div></div>
+              <div style={{position:"relative",overflow:"hidden"}}><div style={{width:"100%",paddingBottom:"62%",background:`url('${a.img}') center/cover`,transition:"transform 0.8s cubic-bezier(0.22,1,0.36,1)",transform:hovId===a.id?"scale(1.05)":"scale(1)"}}/><div style={{position:"absolute",bottom:0,left:0,right:0,height:"40%",background:`linear-gradient(transparent,${BRAND.cream})`}}/><div style={{position:"absolute",top:16,left:16,background:"rgba(15,26,48,0.7)",backdropFilter:"blur(4px)",padding:"4px 12px",fontFamily:"'Cormorant Garamond',serif",fontSize:10,color:BRAND.gold,letterSpacing:3,textTransform:"uppercase"}}>{a.category}</div></div>
               <div style={{padding:"0 24px 28px",marginTop:-20,position:"relative"}}><h3 style={{fontFamily:"'Playfair Display',serif",fontSize:20,color:BRAND.navy,fontWeight:600,lineHeight:1.3,margin:"0 0 10px"}}>{a.title}</h3><div style={{display:"flex",justifyContent:"space-between"}}><span style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.stone}}>{a.date} · {a.readTime}</span><span style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:hovId===a.id?BRAND.gold:BRAND.navy,letterSpacing:2,textTransform:"uppercase",transition:"color 0.3s"}}>Read →</span></div></div>
             </div></Reveal>
           ))}
