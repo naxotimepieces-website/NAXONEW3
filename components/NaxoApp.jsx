@@ -108,6 +108,36 @@ function useIsMobile() {
   return mobile;
 }
 
+// Line-icon set (24px grid, stroke-based, same family). Use: <Icon name="tag" size={28} color={BRAND.gold}/>
+const ICONS={
+  instagram:'<rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>',
+  send:'<path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/>',
+  chat:'<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/>',
+  mail:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/>',
+  bag:'<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>',
+  music:'<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>',
+  facebook:'<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>',
+  shield:'<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
+  tag:'<path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/>',
+  repeat:'<path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/>',
+  pin:'<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
+  cash:'<rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/>',
+  box:'<path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>',
+  users:'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  search:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+  battery:'<rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/>',
+  wrench:'<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/>',
+  gear:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M2 12h3M19 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/>',
+  gem:'<path d="M6 3h12l4 6-10 12L2 9z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/>',
+  link:'<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
+  drop:'<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>',
+  dial:'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+  check:'<path d="M20 6 9 17l-5-5"/>',
+};
+function Icon({name,size=24,color="currentColor",stroke=1.5}) {
+  return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{display:"block",flexShrink:0,color}} dangerouslySetInnerHTML={{__html:ICONS[name]||""}}/>;
+}
+
 function Reveal({children,delay=0,direction="up"}) {
   const ref=useRef(null); const[v,setV]=useState(false);
   useEffect(()=>{const obs=new IntersectionObserver(([e])=>{if(e.isIntersecting)setV(true)},{threshold:0.08,rootMargin:"0px 0px -40px 0px"});if(ref.current)obs.observe(ref.current);return()=>obs.disconnect();},[]);
@@ -325,9 +355,9 @@ function HomePage({navigate}) {
           </div>
         </div>
         <div style={{display:"flex",flexDirection:"column",gap:16}}>
-          {[{icon:"◎",title:"Sell",desc:"Get a fair cash offer. No lowballing — we value your timepiece honestly."},{icon:"⇄",title:"Trade",desc:"Swap your current piece towards something new from our collection."},{icon:"◈",title:"Consign",desc:"Let us sell it for you. We handle photos, listing, and buyer communication."}].map((s,i)=>(
+          {[{icon:"cash",title:"Sell",desc:"Get a fair cash offer. No lowballing — we value your timepiece honestly."},{icon:"repeat",title:"Trade",desc:"Swap your current piece towards something new from our collection."},{icon:"box",title:"Consign",desc:"Let us sell it for you. We handle photos, listing, and buyer communication."}].map((s,i)=>(
             <div key={s.title} onMouseEnter={()=>setSellHov(i)} onMouseLeave={()=>setSellHov(null)} style={{display:"flex",alignItems:"center",gap:24,padding:"28px 32px",background:sellHov===i?"rgba(201,168,76,0.08)":"rgba(245,240,232,0.03)",border:`1px solid ${sellHov===i?"rgba(201,168,76,0.3)":"rgba(245,240,232,0.06)"}`,transition:"all 0.4s",cursor:"pointer",transform:sellHov===i?"translateX(8px)":"translateX(0)"}}>
-              <div style={{fontFamily:"'Playfair Display',serif",fontSize:28,color:BRAND.gold,width:48,textAlign:"center",flexShrink:0}}>{s.icon}</div>
+              <div style={{width:48,display:"flex",justifyContent:"center",flexShrink:0}}><Icon name={s.icon} size={28} color={BRAND.gold} stroke={1.4}/></div>
               <div><div style={{fontFamily:"'Playfair Display',serif",fontSize:20,color:BRAND.cream,fontWeight:600,marginBottom:6}}>{s.title}</div><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:15,color:"rgba(245,240,232,0.5)",lineHeight:1.6}}>{s.desc}</div></div>
             </div>
           ))}
@@ -345,13 +375,13 @@ function HomePage({navigate}) {
         </div></Reveal>
         <div style={{display:"grid",gridTemplateColumns:m?"repeat(2,1fr)":"repeat(4,1fr)",gap:m?16:24}}>
           {[
-            {icon:"🔍",title:"Authenticated",desc:"Every piece is personally inspected and verified before it reaches you."},
-            {icon:"🤝",title:"Fair Pricing",desc:"Transparent price ranges upfront. No hidden fees, no hard sell."},
-            {icon:"🔄",title:"Buy · Trade · Consign",desc:"Flexible options — sell outright, trade up, or consign with us."},
-            {icon:"📍",title:"Meet In Person",desc:"View watches by appointment at Far East Plaza or at our pop-ups."},
+            {icon:"shield",title:"Checked before listing",desc:"Every piece is personally inspected and authenticated before it reaches you."},
+            {icon:"tag",title:"Fair prices",desc:"Ask us what a watch costs and you'll get a straight answer. No hidden fees, no hard sell."},
+            {icon:"repeat",title:"Buy, trade, consign",desc:"Sell outright, trade up, or let us sell it for you."},
+            {icon:"pin",title:"See it in person",desc:"View watches by appointment at Far East Plaza, or find us at a pop-up."},
           ].map((t,i)=>(
             <Reveal key={i} delay={i*0.08}><div style={{textAlign:"center",padding:m?"24px 16px":"32px 24px"}}>
-              <div style={{fontSize:32,marginBottom:16}}>{t.icon}</div>
+              <div style={{display:"flex",justifyContent:"center",marginBottom:18}}><Icon name={t.icon} size={30} color={BRAND.gold} stroke={1.4}/></div>
               <div style={{fontFamily:"'Playfair Display',serif",fontSize:17,color:BRAND.navy,fontWeight:700,marginBottom:10}}>{t.title}</div>
               <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:15,color:BRAND.stone,lineHeight:1.7,margin:0}}>{t.desc}</p>
             </div></Reveal>
@@ -481,8 +511,8 @@ function ShopPage({navigate}) {
 
 // ─── Marquee Banner ───
 function MarqueeBanner({navigate}) {
-  const items=["✦ Monthly pop-ups at Katong Square — The Retro Factory","✦ Buy · Sell · Trade · Consign · Repair","✦ Monthly pop-ups at Katong Square — The Retro Factory","✦ Buy · Sell · Trade · Consign · Repair"];
-  const text=items.join("          ");
+  const items=["Monthly pop-ups at Katong Square — The Retro Factory","Buy · Sell · Trade · Consign · Repair","Monthly pop-ups at Katong Square — The Retro Factory","Buy · Sell · Trade · Consign · Repair"];
+  const text=items.join("   /   ");
   return(
     <div style={{background:BRAND.gold,overflow:"hidden",padding:"8px 0",cursor:"pointer"}} onClick={()=>navigate("events")}>
       <div className="marquee-track" style={{display:"flex",whiteSpace:"nowrap"}}>
@@ -556,9 +586,9 @@ function AboutPage({navigate}) {
     <section style={{background:BRAND.warmWhite,padding:"100px 0"}}><div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
       <Reveal><div style={{textAlign:"center",marginBottom:64}}><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>What We Stand For</div><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,3.5vw,48px)",color:BRAND.navy,fontWeight:700,margin:0}}>Our <span style={{fontStyle:"italic",color:BRAND.gold}}>Values</span></h2></div></Reveal>
       <div style={{display:"grid",gridTemplateColumns:m?"repeat(2,1fr)":"repeat(4,1fr)",gap:24}}>
-        {[{i:"◎",t:"Authenticity First",d:"Every watch is carefully inspected and authenticated."},{i:"◈",t:"Curated, Not Mass",d:"We pick pieces with character and history."},{i:"◉",t:"Community Driven",d:"Built around real connections with watch lovers."},{i:"◇",t:"Accessible Luxury",d:"Heritage brands at fair prices."}].map((v,i)=>(
+        {[{i:"shield",t:"Checked first",d:"Every watch is inspected and authenticated before we list it."},{i:"search",t:"Picked, not stocked",d:"Pieces with character and history, not volume."},{i:"users",t:"Built on people",d:"Most of our sales start with a conversation, not a checkout."},{i:"tag",t:"Fair prices",d:"Heritage brands without the heritage markup."}].map((v,i)=>(
           <Reveal key={i} delay={i*0.1}><div style={{padding:"40px 28px",textAlign:"center",border:`1px solid rgba(26,39,68,0.06)`,background:BRAND.warmWhite}}>
-            <div style={{fontFamily:"'Playfair Display',serif",fontSize:32,color:BRAND.gold,marginBottom:20}}>{v.i}</div>
+            <div style={{display:"flex",justifyContent:"center",marginBottom:20}}><Icon name={v.i} size={30} color={BRAND.gold} stroke={1.4}/></div>
             <h3 style={{fontFamily:"'Playfair Display',serif",fontSize:18,color:BRAND.navy,fontWeight:600,marginBottom:12}}>{v.t}</h3>
             <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:15,color:BRAND.stone,lineHeight:1.7}}>{v.d}</p>
           </div></Reveal>
@@ -659,7 +689,7 @@ function EventsPage({navigate}) {
           <Reveal key={i} delay={i*0.1}><div style={{display:"grid",gridTemplateColumns:m?"1fr":"1fr 1fr",background:BRAND.cream,border:`1px solid rgba(26,39,68,0.06)`}}>
             <div style={{padding:48,display:"flex",alignItems:"center",justifyContent:"center",background:BRAND.cream,minHeight:300}}>
               <div style={{textAlign:"center"}}><div style={{fontFamily:"'Playfair Display',serif",fontSize:64,color:BRAND.gold,fontWeight:700,lineHeight:1}}>{ev.date.split(" ")[0]}</div><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:16,color:BRAND.stone,letterSpacing:2,marginTop:8}}>{ev.date.split(" ").slice(1).join(" ")}</div>
-              {ev.note&&<div style={{marginTop:20,display:"inline-block",background:BRAND.gold,padding:"8px 20px",fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.navy,letterSpacing:2,textTransform:"uppercase",fontWeight:700}}>✦ {ev.note}</div>}</div>
+              {ev.note&&<div style={{marginTop:20,display:"inline-block",background:BRAND.gold,padding:"8px 20px",fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.navy,letterSpacing:2,textTransform:"uppercase",fontWeight:700}}>{ev.note}</div>}</div>
             </div>
             <div style={{padding:"48px 40px",display:"flex",flexDirection:"column",justifyContent:"center"}}>
               <div style={{display:"inline-flex",alignItems:"center",gap:8,background:ev.status==="now"?"#2d6a4f":BRAND.gold,padding:"6px 16px",fontFamily:"'Cormorant Garamond',serif",fontSize:11,color:ev.status==="now"?"#fff":BRAND.navy,letterSpacing:3,textTransform:"uppercase",fontWeight:600,marginBottom:20,alignSelf:"flex-start"}}>
@@ -754,14 +784,14 @@ function HowItWorksPage({navigate}) {
       </div></Reveal>
       <div style={{display:"grid",gridTemplateColumns:m?"1fr":"repeat(3,1fr)",gap:24}}>
         {[
-          {title:"Sell",icon:"◎",points:["Immediate cash payment","Fair market valuation","No listing or waiting","Meet up and done"]},
-          {title:"Trade",icon:"⇄",points:["Swap towards any piece in our collection","Top-up or credit the difference","Upgrade or change your style","Same-day exchange"]},
-          {title:"Consign",icon:"◈",points:["We handle everything — photos, listing, sale","Your watch gets maximum exposure","Competitive commission rate","Payment upon sale"]},
+          {title:"Sell",icon:"cash",points:["Immediate cash payment","Fair market valuation","No listing or waiting","Meet up and done"]},
+          {title:"Trade",icon:"repeat",points:["Swap towards any piece in our collection","Top-up or credit the difference","Upgrade or change your style","Same-day exchange"]},
+          {title:"Consign",icon:"box",points:["We handle everything — photos, listing, sale","Your watch gets maximum exposure","Competitive commission rate","Payment upon sale"]},
         ].map((opt,i)=>(
           <Reveal key={i} delay={i*0.1}><div style={{padding:m?"32px 24px":"40px 32px",background:BRAND.warmWhite,border:`1px solid rgba(26,39,68,0.06)`,textAlign:"center"}}>
-            <div style={{fontFamily:"'Playfair Display',serif",fontSize:36,color:BRAND.gold,marginBottom:16}}>{opt.icon}</div>
+            <div style={{display:"flex",justifyContent:"center",marginBottom:18}}><Icon name={opt.icon} size={34} color={BRAND.gold} stroke={1.3}/></div>
             <h3 style={{fontFamily:"'Playfair Display',serif",fontSize:24,color:BRAND.navy,fontWeight:600,marginBottom:20}}>{opt.title}</h3>
-            {opt.points.map((p,j)=><p key={j} style={{fontFamily:"'Cormorant Garamond',serif",fontSize:15,color:BRAND.stone,lineHeight:1.8,margin:"0 0 8px"}}>✦ {p}</p>)}
+            {opt.points.map((p,j)=><p key={j} style={{fontFamily:"'Cormorant Garamond',serif",fontSize:15,color:BRAND.stone,lineHeight:1.8,margin:"0 0 8px"}}><span style={{color:BRAND.gold,marginRight:10}}>—</span>{p}</p>)}
           </div></Reveal>
         ))}
       </div>
@@ -805,7 +835,7 @@ function HowItWorksPage({navigate}) {
 function ContactPage({navigate}) {
   const m=useIsMobile();
   const[form,setForm]=useState({name:"",email:"",type:"",message:""});const[sent,setSent]=useState(false);const[hovCh,setHovCh]=useState(null);const[openFaq,setOpenFaq]=useState(null);
-  const channels=[{name:"Instagram",handle:"@naxotimepieces",icon:"📷",link:"https://www.instagram.com/naxotimepieces/"},{name:"Telegram",handle:"@naxotimepiecessg",icon:"✈️",link:"https://t.me/naxotimepiecessg"},{name:"WhatsApp",handle:"Chat with us",icon:"💬",link:"https://wa.me/6588255367"},{name:"Email",handle:"naxotimepieces@gmail.com",icon:"✉️",link:"mailto:naxotimepieces@gmail.com"},{name:"Carousell",handle:"@naxotimepieces",icon:"🛒",link:"https://www.carousell.sg/u/naxotimepieces/"},{name:"TikTok",handle:"@naxotimepieces",icon:"🎵",link:"https://www.tiktok.com/@naxotimepieces"},{name:"Facebook",handle:"Naxo Timepieces",icon:"👥",link:"https://www.facebook.com/share/1YAru9ssGW/?mibextid=wwXIfr"}];
+  const channels=[{name:"Instagram",handle:"@naxotimepieces",icon:"instagram",link:"https://www.instagram.com/naxotimepieces/"},{name:"Telegram",handle:"@naxotimepiecessg",icon:"send",link:"https://t.me/naxotimepiecessg"},{name:"WhatsApp",handle:"Chat with us",icon:"chat",link:"https://wa.me/6588255367"},{name:"Email",handle:"naxotimepieces@gmail.com",icon:"mail",link:"mailto:naxotimepieces@gmail.com"},{name:"Carousell",handle:"@naxotimepieces",icon:"bag",link:"https://www.carousell.sg/u/naxotimepieces/"},{name:"TikTok",handle:"@naxotimepieces",icon:"music",link:"https://www.tiktok.com/@naxotimepieces"},{name:"Facebook",handle:"Naxo Timepieces",icon:"facebook",link:"https://www.facebook.com/share/1YAru9ssGW/?mibextid=wwXIfr"}];
   const faqs=[{q:"Are your watches authentic?",a:"Yes — every watch is carefully inspected and authenticated. We stand behind everything we sell."},{q:"Do you ship internationally?",a:"On a case-by-case basis. Drop us a message with your location."},{q:"How does consignment work?",a:"Send us photos. We'll value, photograph, list, and sell. Competitive commission."},{q:"Do you do repairs?",a:"We work with trusted watchmakers for servicing, crystals, and straps."}];
   const inpStyle={width:"100%",padding:"14px 18px",fontFamily:"'Cormorant Garamond',serif",fontSize:15,color:BRAND.navy,background:BRAND.warmWhite,border:`1px solid rgba(26,39,68,0.12)`,outline:"none",letterSpacing:0.5};
 
@@ -820,7 +850,7 @@ function ContactPage({navigate}) {
       <div style={{display:"grid",gridTemplateColumns:m?"repeat(2,1fr)":"repeat(4,1fr)",gap:16,marginBottom:16}}>
         {channels.slice(0,4).map((ch,i)=>(
           <Reveal key={ch.name} delay={i*0.06}><a href={ch.link} target="_blank" rel="noopener noreferrer" onMouseEnter={()=>setHovCh(i)} onMouseLeave={()=>setHovCh(null)} style={{display:"flex",flexDirection:"column",alignItems:"center",padding:m?"24px 16px":"32px 24px",background:hovCh===i?BRAND.cream:BRAND.warmWhite,border:`1px solid ${hovCh===i?"rgba(201,168,76,0.4)":"rgba(26,39,68,0.06)"}`,transition:"all 0.4s",cursor:"pointer",textDecoration:"none",transform:hovCh===i?"translateY(-4px)":"translateY(0)"}}>
-            <div style={{fontSize:28,marginBottom:12}}>{ch.icon}</div>
+            <div style={{marginBottom:14}}><Icon name={ch.icon} size={28} color={BRAND.gold} stroke={1.4}/></div>
             <div style={{fontFamily:"'Playfair Display',serif",fontSize:m?16:18,color:BRAND.navy,fontWeight:600,marginBottom:4}}>{ch.name}</div>
             <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:13,color:hovCh===i?BRAND.gold:BRAND.stone,transition:"color 0.3s"}}>{ch.handle}</div>
           </a></Reveal>
@@ -829,7 +859,7 @@ function ContactPage({navigate}) {
       <div style={{display:"grid",gridTemplateColumns:m?"repeat(3,1fr)":"repeat(3,1fr)",gap:16}}>
         {channels.slice(4).map((ch,i)=>(
           <Reveal key={ch.name} delay={(i+4)*0.06}><a href={ch.link} target="_blank" rel="noopener noreferrer" onMouseEnter={()=>setHovCh(i+4)} onMouseLeave={()=>setHovCh(null)} style={{display:"flex",flexDirection:"column",alignItems:"center",padding:m?"20px 12px":"28px 24px",background:hovCh===i+4?BRAND.cream:BRAND.warmWhite,border:`1px solid ${hovCh===i+4?"rgba(201,168,76,0.4)":"rgba(26,39,68,0.06)"}`,transition:"all 0.4s",cursor:"pointer",textDecoration:"none",transform:hovCh===i+4?"translateY(-4px)":"translateY(0)"}}>
-            <div style={{fontSize:24,marginBottom:10}}>{ch.icon}</div>
+            <div style={{marginBottom:12}}><Icon name={ch.icon} size={24} color={BRAND.gold} stroke={1.4}/></div>
             <div style={{fontFamily:"'Playfair Display',serif",fontSize:m?14:16,color:BRAND.navy,fontWeight:600,marginBottom:4}}>{ch.name}</div>
             <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:hovCh===i+4?BRAND.gold:BRAND.stone,transition:"color 0.3s"}}>{ch.handle}</div>
           </a></Reveal>
@@ -848,7 +878,7 @@ function ContactPage({navigate}) {
         </div>
       </div></Reveal>
       <Reveal delay={0.15}><div style={{padding:"48px 44px",background:BRAND.warmWhite,border:`1px solid rgba(26,39,68,0.06)`}}>
-        {sent?<div style={{textAlign:"center",padding:"40px 0"}}><div style={{fontSize:48,marginBottom:24}}>✦</div><h3 style={{fontFamily:"'Playfair Display',serif",fontSize:28,color:BRAND.navy,fontWeight:700,margin:"0 0 12px"}}>Message Sent</h3><p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:16,color:BRAND.stone}}>We'll get back to you within 24 hours.</p></div>:
+        {sent?<div style={{textAlign:"center",padding:"40px 0"}}><div style={{display:"flex",justifyContent:"center",marginBottom:24}}><Icon name="check" size={44} color={BRAND.gold} stroke={1.3}/></div><h3 style={{fontFamily:"'Playfair Display',serif",fontSize:28,color:BRAND.navy,fontWeight:700,margin:"0 0 12px"}}>Message Sent</h3><p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:16,color:BRAND.stone}}>We'll get back to you within 24 hours.</p></div>:
         <><div style={{display:"grid",gridTemplateColumns:m?"1fr":"1fr 1fr",gap:24,marginBottom:24}}>
           <div><label style={{fontFamily:"'Cormorant Garamond',serif",fontSize:11,color:BRAND.stone,letterSpacing:3,textTransform:"uppercase",marginBottom:8,display:"block"}}>Your Name</label><input type="text" placeholder="e.g. John" value={form.name} onChange={e=>setForm({...form,name:e.target.value})} style={inpStyle}/></div>
           <div><label style={{fontFamily:"'Cormorant Garamond',serif",fontSize:11,color:BRAND.stone,letterSpacing:3,textTransform:"uppercase",marginBottom:8,display:"block"}}>Email</label><input type="email" placeholder="john@email.com" value={form.email} onChange={e=>setForm({...form,email:e.target.value})} style={inpStyle}/></div>
@@ -914,14 +944,14 @@ function ContactPage({navigate}) {
 function ServicingPage({navigate}) {
   const m=useIsMobile();const[openFaq,setOpenFaq]=useState(null);
   const services=[
-    {icon:"🔋",title:"Battery Replacement",price:"From S$15",desc:"Quick and clean battery swap for quartz watches. We use quality cells and test the watch thoroughly before returning it to you.",time:"Same day"},
-    {icon:"🔧",title:"Basic Service",price:"From S$80",desc:"Full movement clean, oil, and regulation. Includes case and bracelet clean. Ideal for watches that are running slow or losing time.",time:"3–5 days"},
-    {icon:"⚙️",title:"Full Overhaul",price:"From S$180",desc:"Complete disassembly, ultrasonic clean, lubrication, and reassembly of all components. Recommended every 3–5 years for mechanical watches.",time:"1–2 weeks"},
-    {icon:"✨",title:"Case Polishing",price:"From S$40",desc:"Light polishing of case and bracelet to restore lustre. We take a conservative approach — we won't over-polish vintage pieces.",time:"2–3 days"},
-    {icon:"🔗",title:"Bracelet & Strap",price:"From S$20",desc:"Bracelet sizing, pin replacement, and strap changes. We carry a range of quality leather and NATO straps if you need a replacement.",time:"Same day"},
-    {icon:"🔍",title:"Authentication & Valuation",price:"From S$30",desc:"Full inspection and authentication report for your watch. Useful for insurance, resale, or just peace of mind about what you own.",time:"1–2 days"},
-    {icon:"💧",title:"Pressure Testing",price:"From S$25",desc:"Water resistance testing for dive and sport watches. Essential after any service or if you plan to wear your watch near water.",time:"Same day"},
-    {icon:"📐",title:"Dial Restoration",price:"Quote on request",desc:"Cleaning and light restoration of dials. We work carefully to preserve patina while removing dirt and damage. Pricing depends on condition.",time:"1–2 weeks"},
+    {icon:"battery",title:"Battery Replacement",price:"From S$15",desc:"Quick and clean battery swap for quartz watches. We use quality cells and test the watch thoroughly before returning it to you.",time:"Same day"},
+    {icon:"wrench",title:"Basic Service",price:"From S$80",desc:"Full movement clean, oil, and regulation. Includes case and bracelet clean. Ideal for watches that are running slow or losing time.",time:"3–5 days"},
+    {icon:"gear",title:"Full Overhaul",price:"From S$180",desc:"Complete disassembly, ultrasonic clean, lubrication, and reassembly of all components. Recommended every 3–5 years for mechanical watches.",time:"1–2 weeks"},
+    {icon:"gem",title:"Case Polishing",price:"From S$40",desc:"Light polishing of case and bracelet to restore lustre. We take a conservative approach — we won't over-polish vintage pieces.",time:"2–3 days"},
+    {icon:"link",title:"Bracelet & Strap",price:"From S$20",desc:"Bracelet sizing, pin replacement, and strap changes. We carry a range of quality leather and NATO straps if you need a replacement.",time:"Same day"},
+    {icon:"shield",title:"Authentication & Valuation",price:"From S$30",desc:"Full inspection and authentication report for your watch. Useful for insurance, resale, or just peace of mind about what you own.",time:"1–2 days"},
+    {icon:"drop",title:"Pressure Testing",price:"From S$25",desc:"Water resistance testing for dive and sport watches. Essential after any service or if you plan to wear your watch near water.",time:"Same day"},
+    {icon:"dial",title:"Dial Restoration",price:"Quote on request",desc:"Cleaning and light restoration of dials. We work carefully to preserve patina while removing dirt and damage. Pricing depends on condition.",time:"1–2 weeks"},
   ];
 
   const faqs=[
@@ -951,7 +981,7 @@ function ServicingPage({navigate}) {
               onMouseLeave={e=>e.currentTarget.style.background=BRAND.warmWhite}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:12,flexWrap:"wrap",gap:8}}>
                 <div style={{display:"flex",alignItems:"center",gap:14}}>
-                  <span style={{fontSize:28}}>{s.icon}</span>
+                  <Icon name={s.icon} size={26} color={BRAND.gold} stroke={1.4}/>
                   <div style={{fontFamily:"'Playfair Display',serif",fontSize:m?17:20,color:BRAND.navy,fontWeight:700}}>{s.title}</div>
                 </div>
                 <div style={{textAlign:"right",flexShrink:0}}>
