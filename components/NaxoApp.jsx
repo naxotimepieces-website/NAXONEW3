@@ -1054,8 +1054,51 @@ function ServicingPage({navigate}) {
   </>);
 }
 
+// ─── Chat mascot: floats bottom-right, links to WhatsApp, rotates what it says every 5s ───
+const MASCOT_LINES=[
+  {t:"Need more information?",m:"Hi Naxo! I'd like to know more."},
+  {t:"Chat with us!",m:"Hi Naxo! I'd like to know more."},
+  {t:"Watch needs servicing?",m:"Hi Naxo! I'd like to enquire about watch servicing."},
+  {t:"Looking for something specific?",m:"Hi Naxo! I'm looking for a specific watch."},
+  {t:"Got a watch to sell or trade?",m:"Hi Naxo! I'd like to get a quote for my watch."},
+  {t:"Can't decide? Ask us!",m:"Hi Naxo! I need help choosing a watch."},
+  {t:"Tick tock… still thinking it over?",m:"Hi Naxo! I'm interested in one of your watches."},
+  {t:"Catch us at our next pop-up!",m:"Hi Naxo! When is your next pop-up?"},
+];
+function MascotWidget() {
+  const m=useIsMobile();const[i,setI]=useState(0);const[talking,setTalking]=useState(false);
+  useEffect(()=>{const id=setInterval(()=>setI(x=>(x+1)%MASCOT_LINES.length),5000);return()=>clearInterval(id)},[]);
+  useEffect(()=>{if(i===0)return;setTalking(true);const t=setTimeout(()=>setTalking(false),1600);return()=>clearTimeout(t)},[i]);
+  const line=MASCOT_LINES[i];const W=m?84:98;const H=Math.round(W*421/374);const img="url('/mascot-chat.png')";
+  // Eyelid + mouth positions are % of the mascot image (374x421 source)
+  const lid=(l,t,w,h)=>({position:"absolute",left:l+"%",top:t+"%",width:w+"%",height:h+"%",borderRadius:"50%",background:"#f9f0d2"});
+  return(
+    <a className="mascot-btn" href={"https://wa.me/6588255367?text="+encodeURIComponent(line.m)} target="_blank" rel="noopener noreferrer" aria-label="Chat with Naxo on WhatsApp"
+      style={{position:"fixed",bottom:m?10:18,right:m?8:20,zIndex:90,display:"flex",flexDirection:"column",alignItems:"flex-end",textDecoration:"none",WebkitTapHighlightColor:"transparent"}}>
+      <div key={i} className="mascot-bubble" style={{position:"relative",background:"#fff",borderRadius:18,padding:m?"8px 14px":"10px 18px",boxShadow:"0 4px 18px rgba(0,0,0,0.14)",fontFamily:"'Cormorant Garamond',serif",fontWeight:600,fontSize:m?14:16,color:BRAND.navy,maxWidth:m?190:240,textAlign:"center",lineHeight:1.25,marginBottom:10,marginRight:m?4:8,animationDelay:i===0?"2s":"0s"}}>
+        {line.t}
+        <span style={{position:"absolute",bottom:-6,right:W*0.35,width:14,height:14,background:"#fff",transform:"rotate(45deg)",borderRadius:2}}/>
+      </div>
+      <div className={talking?"mascot-talking":""} style={{position:"relative",width:W,height:H}}>
+        <div className="mascot-body" style={{position:"absolute",inset:0,filter:"drop-shadow(0 6px 8px rgba(0,0,0,0.28))"}}>
+          <div aria-hidden="true" style={{position:"absolute",inset:0,backgroundImage:img,backgroundSize:"100% 100%"}}/>
+          {/* mouth: a clipped copy of the artwork that opens and closes while it talks */}
+          <div aria-hidden="true" style={{position:"absolute",left:"36.9%",top:"39.9%",width:"31.6%",height:"15.2%",overflow:"hidden",WebkitMaskImage:"radial-gradient(ellipse at 50% 45%,#000 58%,transparent 100%)",maskImage:"radial-gradient(ellipse at 50% 45%,#000 58%,transparent 100%)"}}>
+            <div className="mascot-mouth-wrap" style={{position:"absolute",inset:0}}>
+              <div style={{position:"absolute",width:"316.5%",height:"657%",left:"-116.9%",top:"-262.5%",backgroundImage:img,backgroundSize:"100% 100%"}}/>
+            </div>
+          </div>
+          {/* blink: cartoon snap-blink every few seconds */}
+          <div aria-hidden="true" className="mascot-eyelid" style={lid(37.9,24.9,12.9,12.9)}><span style={{position:"absolute",left:"10%",top:"46%",width:"80%",height:"30%",borderBottom:"2.5px solid #260d0d",borderRadius:"0 0 50% 50%"}}/></div>
+          <div aria-hidden="true" className="mascot-eyelid" style={{...lid(54,26.6,11.8,13.8),animationDelay:"0.02s"}}><span style={{position:"absolute",left:"10%",top:"46%",width:"80%",height:"30%",borderBottom:"2.5px solid #260d0d",borderRadius:"0 0 50% 50%"}}/></div>
+        </div>
+      </div>
+    </a>
+  );
+}
+
 export default function NaxoApp() {
-  const[page,setPage]=useState("home");const[scrolled,setScrolled]=useState(false);const[transitioning,setTransitioning]=useState(false);const[waOpen,setWaOpen]=useState(false);
+  const[page,setPage]=useState("home");const[scrolled,setScrolled]=useState(false);const[transitioning,setTransitioning]=useState(false);
   useEffect(()=>{const h=()=>setScrolled(window.scrollY>60);window.addEventListener("scroll",h);return()=>window.removeEventListener("scroll",h)},[]);
   const navigate=(p)=>{if(p===page)return;setTransitioning(true);setTimeout(()=>{setPage(p);window.scrollTo(0,0);setTimeout(()=>setTransitioning(false),50)},300)};
   const pages={home:HomePage,shop:ShopPage,about:AboutPage,journal:JournalPage,events:EventsPage,contact:ContactPage,howitworks:HowItWorksPage,servicing:ServicingPage};
@@ -1085,21 +1128,7 @@ export default function NaxoApp() {
       </div>
       <Footer navigate={navigate}/>
 
-      {/* WhatsApp Floating Widget */}
-      <div style={{position:"fixed",bottom:28,right:28,zIndex:90,display:"flex",flexDirection:"column",alignItems:"flex-end",gap:12}}>
-        {waOpen&&<div style={{background:"#fff",borderRadius:16,padding:"24px 28px",boxShadow:"0 8px 32px rgba(0,0,0,0.15)",maxWidth:280,animation:"waPop 0.3s ease"}}>
-          <button onClick={()=>setWaOpen(false)} style={{position:"absolute",top:12,right:16,background:"none",border:"none",fontSize:18,color:"#999",cursor:"pointer"}}>✕</button>
-          <div style={{fontFamily:"'Playfair Display',serif",fontSize:18,color:BRAND.navy,fontWeight:700,marginBottom:8}}>Need Help?</div>
-          <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:15,color:BRAND.stone,lineHeight:1.6,marginBottom:16}}>Chat with us about watches, pricing, or anything else. We're happy to help!</p>
-          <a href="https://wa.me/6588255367?text=Hi%20Naxo!%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener noreferrer" style={{display:"block",background:"#25D366",color:"#fff",fontFamily:"'Cormorant Garamond',serif",fontSize:15,fontWeight:600,textAlign:"center",padding:"14px 24px",borderRadius:10,textDecoration:"none",letterSpacing:1,transition:"background 0.3s"}}
-          onMouseEnter={e=>e.target.style.background="#1ebe57"} onMouseLeave={e=>e.target.style.background="#25D366"}>Chat on WhatsApp</a>
-        </div>}
-        {!waOpen&&<div style={{background:"rgba(255,255,255,0.95)",borderRadius:20,padding:"8px 16px",boxShadow:"0 2px 12px rgba(0,0,0,0.08)",fontFamily:"'Cormorant Garamond',serif",fontSize:13,color:BRAND.navy,animation:"waPop 0.3s ease",animationDelay:"2s",animationFillMode:"both"}}>Chat with us!</div>}
-        <button onClick={()=>setWaOpen(!waOpen)} style={{width:60,height:60,borderRadius:"50%",background:"#25D366",border:"none",cursor:"pointer",boxShadow:"0 4px 20px rgba(37,211,102,0.4)",display:"flex",alignItems:"center",justifyContent:"center",transition:"transform 0.3s",animation:"float 3s ease-in-out infinite"}}
-        onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}>
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </button>
-      </div>
+      <MascotWidget/>
     </div>
   );
 }

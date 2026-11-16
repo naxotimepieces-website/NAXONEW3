@@ -19,3 +19,20 @@ input::placeholder, textarea::placeholder { color: rgba(138,129,114,0.5); }
 @media (max-width: 768px) {
   .marquee-track { animation-duration: 9s; }
 }
+
+/* Chat mascot (bottom-right widget) */
+@keyframes mascotBob { 0%,100%{transform:translateY(0) rotate(-1.5deg)} 50%{transform:translateY(-6px) rotate(1.5deg)} }
+@keyframes mascotHop { 0%{transform:translateY(0) scale(1,1)} 25%{transform:translateY(0) scale(1.07,0.9)} 55%{transform:translateY(-18px) scale(0.96,1.07) rotate(-5deg)} 80%{transform:translateY(0) scale(1.05,0.94)} 100%{transform:translateY(0) scale(1,1)} }
+@keyframes mascotBlink { 0%,91%,100%{opacity:0} 93%,97%{opacity:1} }
+@keyframes mascotTalk { 0%,100%{transform:scaleY(1)} 50%{transform:scaleY(1.16)} }
+@keyframes bubbleIn { from{opacity:0;transform:translateY(8px) scale(0.9)} to{opacity:1;transform:translateY(0) scale(1)} }
+.mascot-body { animation: mascotBob 3.2s ease-in-out infinite; transform-origin: 50% 100%; }
+.mascot-btn:hover .mascot-body { animation: mascotHop 0.7s ease-in-out 1; }
+.mascot-btn:active .mascot-body { animation: none; transform: scale(0.93); }
+.mascot-eyelid { opacity: 0; animation: mascotBlink 4.6s linear infinite; }
+.mascot-mouth-wrap { transform-origin: 50% 0%; }
+.mascot-talking .mascot-mouth-wrap { animation: mascotTalk 0.26s ease-in-out infinite; }
+.mascot-bubble { animation: bubbleIn 0.4s cubic-bezier(0.22,1,0.36,1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .mascot-body, .mascot-eyelid, .mascot-mouth-wrap, .mascot-bubble, .mascot-btn:hover .mascot-body { animation: none !important; }
+}
