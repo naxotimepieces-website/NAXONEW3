@@ -235,7 +235,7 @@ function PageHero({tag,title,titleGold,subtitle}) {
       <div style={{position:"absolute",inset:0,opacity:0.03,backgroundImage:`linear-gradient(rgba(201,168,76,1) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,1) 1px,transparent 1px)`,backgroundSize:"80px 80px"}}/>
       <div style={{maxWidth:1400,margin:"0 auto",padding:m?"60px 20px 30px":"80px 40px 40px",position:"relative"}}>
         <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:6,textTransform:"uppercase",marginBottom:24,opacity:loaded?1:0,transform:loaded?"translateY(0)":"translateY(20px)",transition:"all 0.8s ease 0.2s"}}>{tag}</div>
-        <h1 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(40px,5vw,64px)",color:BRAND.cream,fontWeight:700,lineHeight:1.08,margin:"0 0 24px",opacity:loaded?1:0,transform:loaded?"translateY(0)":"translateY(40px)",transition:"all 1s ease 0.4s"}} dangerouslySetInnerHTML={{__html:`${title} <span style="color:${BRAND.gold};font-style:italic">${titleGold}</span>`}}/>
+        <h1 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(40px,5vw,64px)",color:BRAND.cream,fontWeight:700,lineHeight:1.08,margin:"0 0 24px",opacity:loaded?1:0,transform:loaded?"translateY(0)":"translateY(40px)",transition:"all 1s ease 0.4s"}} dangerouslySetInnerHTML={{__html:titleGold?`${title} <span style="color:${BRAND.gold};font-style:italic">${titleGold}</span>`:title}}/>
         {subtitle&&<p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:20,color:"rgba(245,240,232,0.5)",maxWidth:480,lineHeight:1.7,opacity:loaded?1:0,transform:loaded?"translateY(0)":"translateY(30px)",transition:"all 0.8s ease 0.6s"}}>{subtitle}</p>}
       </div>
     </section>
@@ -278,16 +278,15 @@ function HomePage({navigate}) {
         {/* Giant editorial headline */}
         <div style={{maxWidth:m?"100%":700}}>
           <h1 style={{fontFamily:"'Playfair Display',serif",fontWeight:700,color:BRAND.cream,lineHeight:1,margin:"0 0 40px",opacity:loaded?1:0,transition:"all 1s ease 0.3s"}}>
-            <span style={{display:"block",fontSize:m?"clamp(44px,11vw,72px)":"clamp(56px,6.5vw,96px)"}}>Curating</span>
-            <span style={{display:"block",fontSize:m?"clamp(44px,11vw,72px)":"clamp(56px,6.5vw,96px)",color:BRAND.gold,fontStyle:"italic"}}>Moments,</span>
-            <span style={{display:"block",fontSize:m?"clamp(44px,11vw,72px)":"clamp(56px,6.5vw,96px)"}}>One Watch</span>
-            <span style={{display:"block",fontSize:m?"clamp(44px,11vw,72px)":"clamp(56px,6.5vw,96px)"}}>at a Time</span>
+            <span style={{display:"block",fontSize:m?"clamp(44px,11vw,72px)":"clamp(56px,6.5vw,96px)"}}>Vintage watches</span>
+            <span style={{display:"block",fontSize:m?"clamp(44px,11vw,72px)":"clamp(56px,6.5vw,96px)"}}>you'll <span style={{color:BRAND.gold,fontStyle:"italic"}}>actually</span></span>
+            <span style={{display:"block",fontSize:m?"clamp(44px,11vw,72px)":"clamp(56px,6.5vw,96px)"}}>want to wear.</span>
           </h1>
 
           {/* Subtitle + CTA */}
           <div style={{opacity:loaded?1:0,transition:"all 0.8s ease 0.7s"}}>
             <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:m?16:19,color:"rgba(245,240,232,0.55)",lineHeight:1.75,maxWidth:420,margin:"0 0 36px"}}>
-              Neo-vintage timepieces from the 1950s to 1990s — sourced, authenticated, and restored with care in Singapore.
+              Neo-vintage watches from the 1950s to the 1990s, inspected and authenticated before they reach you. Based in Singapore.
             </p>
             <div style={{display:"flex",gap:12,flexWrap:"wrap"}}>
               <GoldButton onClick={()=>navigate("shop")}>Browse Collection</GoldButton>
@@ -316,7 +315,7 @@ function HomePage({navigate}) {
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-end",marginBottom:60}}>
           <div>
             <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:12}}>The Collection</div>
-            <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(36px,4vw,56px)",color:BRAND.navy,fontWeight:700,margin:0}}>Recently <span style={{fontStyle:"italic",color:BRAND.gold}}>Acquired</span></h2>
+            <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(36px,4vw,56px)",color:BRAND.navy,fontWeight:700,margin:0}}>Just in</h2>
           </div>
           <a onClick={()=>navigate("shop")} style={{fontFamily:"'Cormorant Garamond',serif",fontSize:13,color:BRAND.navy,letterSpacing:3,textTransform:"uppercase",textDecoration:"none",borderBottom:`1px solid ${BRAND.gold}`,paddingBottom:4,cursor:"pointer"}}>View All →</a>
         </div>
@@ -347,8 +346,8 @@ function HomePage({navigate}) {
       <div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px",display:"grid",gridTemplateColumns:m?"1fr":"1fr 1fr",gap:m?32:80,alignItems:"center",position:"relative"}}>
         <div>
           <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:20}}>Buy · Trade · Consign</div>
-          <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,4vw,52px)",color:BRAND.cream,fontWeight:700,lineHeight:1.1,margin:"0 0 24px"}}>Sell Us Your<br/><span style={{color:BRAND.gold,fontStyle:"italic"}}>Watch</span></h2>
-          <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:18,color:"rgba(245,240,232,0.55)",lineHeight:1.8,marginBottom:40,maxWidth:440}}>Got a watch you're ready to part with? We buy, trade, and consign watches from brands like Seiko, Omega, Cartier, Rolex, and more. Fair prices, quick payment, no hassle.</p>
+          <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,4vw,52px)",color:BRAND.cream,fontWeight:700,lineHeight:1.1,margin:"0 0 24px"}}>Got a watch sitting<br/>in a drawer?</h2>
+          <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:18,color:"rgba(245,240,232,0.55)",lineHeight:1.8,marginBottom:40,maxWidth:440}}>We buy, trade, and consign — Seiko, Omega, Cartier, Rolex and more. Send us photos on WhatsApp and you'll get an honest number, not a lowball.</p>
           <div style={{display:"flex",gap:16}}>
             <GoldButton onClick={()=>window.open("https://wa.me/6588255367?text=Hi%20Naxo!%20I%27d%20like%20to%20get%20a%20quote%20for%20my%20watch.","_blank")}>Get a Quote</GoldButton>
             <GoldButton ghost onClick={()=>navigate("howitworks")}>How It Works</GoldButton>
@@ -371,7 +370,7 @@ function HomePage({navigate}) {
       <div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
         <Reveal><div style={{textAlign:"center",marginBottom:52}}>
           <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:12}}>Why Naxo</div>
-          <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,40px)",color:BRAND.navy,fontWeight:700,margin:0}}>Buy with <span style={{fontStyle:"italic",color:BRAND.gold}}>Confidence</span></h2>
+          <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,40px)",color:BRAND.navy,fontWeight:700,margin:0}}>Why people buy from us</h2>
         </div></Reveal>
         <div style={{display:"grid",gridTemplateColumns:m?"repeat(2,1fr)":"repeat(4,1fr)",gap:m?16:24}}>
           {[
@@ -394,7 +393,7 @@ function HomePage({navigate}) {
     <section style={{background:BRAND.cream,padding:"100px 0"}}>
       <div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
         <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:12}}>Pop-ups & Events</div>
-        <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,3.5vw,48px)",color:BRAND.navy,fontWeight:700,margin:"0 0 48px"}}>Meet Us <span style={{fontStyle:"italic",color:BRAND.gold}}>In Person</span></h2>
+        <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,3.5vw,48px)",color:BRAND.navy,fontWeight:700,margin:"0 0 48px"}}>Find us at a pop-up</h2>
         <div style={{display:"grid",gridTemplateColumns:m?"1fr":"1fr 1fr",gap:24}}>
           {[{title:"The Retro Factory",date:"2–4 Oct 2026",loc:"Katong Square",note:"Free Sake"},{title:"SMUSA Bizneyland",date:"27–28 Oct 2026",loc:"SMU T-Junction",note:"12PM–6PM"}].map((ev,i)=>(
             <div key={i} onClick={()=>navigate("events")} style={{border:`1px solid rgba(26,39,68,0.12)`,padding:40,position:"relative",background:BRAND.warmWhite,cursor:"pointer",transition:"all 0.4s"}} onMouseEnter={e=>e.currentTarget.style.borderColor=BRAND.gold} onMouseLeave={e=>e.currentTarget.style.borderColor="rgba(26,39,68,0.12)"}>
@@ -412,8 +411,8 @@ function HomePage({navigate}) {
     <section style={{background:BRAND.deepNavy,padding:"100px 0",textAlign:"center",position:"relative"}}>
       <div style={{position:"absolute",inset:0,opacity:0.03,backgroundImage:`radial-gradient(circle at 2px 2px,${BRAND.gold} 1px,transparent 0)`,backgroundSize:"40px 40px"}}/>
       <div style={{maxWidth:600,margin:"0 auto",padding:m?"0 20px":"0 40px",position:"relative"}}>
-        <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,4vw,52px)",color:BRAND.cream,fontWeight:700,lineHeight:1.15,margin:"0 0 24px"}}>Found Your Next<br/><span style={{color:BRAND.gold,fontStyle:"italic"}}>Timepiece</span>?</h2>
-        <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:18,color:"rgba(245,240,232,0.55)",lineHeight:1.7,marginBottom:40}}>DM us on Instagram or WhatsApp, or drop us a message. We're always happy to help you find the one.</p>
+        <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,4vw,52px)",color:BRAND.cream,fontWeight:700,lineHeight:1.15,margin:"0 0 24px"}}>See one you like?</h2>
+        <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:18,color:"rgba(245,240,232,0.55)",lineHeight:1.7,marginBottom:40}}>DM us on Instagram or WhatsApp, or send a message through the form. Looking for something specific? Tell us and we'll keep an eye out.</p>
         <div style={{display:"flex",gap:16,justifyContent:"center",flexWrap:"wrap"}}>
           <GoldButton onClick={()=>navigate("contact")}>Contact Us</GoldButton>
           <GoldButton ghost onClick={()=>navigate("shop")}>Browse Watches</GoldButton>
@@ -435,7 +434,7 @@ function ShopPage({navigate}) {
   if(sort==="Price: Low → High")f.sort((a,b)=>a.price-b.price);if(sort==="Price: High → Low")f.sort((a,b)=>b.price-a.price);
 
   return(<>
-    <PageHero tag="The Collection" title="Our " titleGold="Catalog" subtitle="Browse our curated selection of neo-vintage timepieces."/>
+    <PageHero tag="The Collection" title="In the case right now" titleGold="" subtitle="Everything we currently have, plus the pieces that have already found a home. Open any watch for the full details."/>
     {/* Filters */}
     <section style={{background:BRAND.cream,borderBottom:`1px solid rgba(26,39,68,0.06)`,position:"sticky",top:60,zIndex:50}}>
       <div style={{maxWidth:1400,margin:"0 auto",padding:"16px 40px",display:"flex",alignItems:"center",gap:m?8:20,flexWrap:"wrap",overflowX:m?"auto":"visible"}}>
@@ -479,7 +478,7 @@ function ShopPage({navigate}) {
     {/* Sourcing CTA */}
     <section style={{background:BRAND.navy,padding:"60px 0"}}>
       <div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:24}}>
-        <div><h3 style={{fontFamily:"'Playfair Display',serif",fontSize:28,color:BRAND.cream,fontWeight:700,margin:"0 0 8px"}}>Looking for something <span style={{color:BRAND.gold,fontStyle:"italic"}}>specific</span>?</h3><p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:16,color:"rgba(245,240,232,0.5)",margin:0}}>We source watches on request. Tell us what you're after.</p></div>
+        <div><h3 style={{fontFamily:"'Playfair Display',serif",fontSize:28,color:BRAND.cream,fontWeight:700,margin:"0 0 8px"}}>Looking for something specific?</h3><p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:16,color:"rgba(245,240,232,0.5)",margin:0}}>We source watches on request. Tell us what you're after.</p></div>
         <GoldButton onClick={()=>navigate("contact")}>Request a Watch</GoldButton>
       </div>
     </section>
@@ -553,18 +552,18 @@ function GalleryScroll({photos}) {
 function AboutPage({navigate}) {
   const m=useIsMobile();
   return(<>
-    <PageHero tag="Our Story" title="It Started With Two Watches &amp; a " titleGold="Friendship" subtitle="What began as two friends geeking out over forgotten Seikos has become Singapore's go-to destination for neo-vintage timepieces."/>
+    <PageHero tag="Our Story" title="Two classmates, a lot of old watches" titleGold="" subtitle="Naxo started with two friends who couldn't stop looking at watch listings. Now we run pop-ups and sell to people who feel the same way."/>
     {/* Story */}
     <section style={{background:BRAND.warmWhite,padding:"100px 0"}}><div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px",display:"grid",gridTemplateColumns:m?"1fr":"1fr 1fr",gap:m?32:80,alignItems:"center"}}>
       <Reveal><div style={{borderLeft:`3px solid ${BRAND.gold}`,paddingLeft:40}}><div style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(24px,2.5vw,36px)",color:BRAND.navy,fontWeight:600,lineHeight:1.4,fontStyle:"italic",marginBottom:32}}>"We fell in love with the idea that a beautifully made watch from 1970 could still turn heads — and cost less than a new smartwatch."</div><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:14,color:BRAND.gold,letterSpacing:3,textTransform:"uppercase"}}>— The Founders</div></div></Reveal>
-      <Reveal delay={0.2}><div><p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:18,color:BRAND.charcoal,lineHeight:1.85,marginBottom:24}}>It started the way most good things do — by accident. We were two classmates at Temasek Polytechnic who discovered a shared obsession with vintage watches. What began as swapping finds between lectures quickly turned into late nights hunting down our next piece together.</p><p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:18,color:BRAND.charcoal,lineHeight:1.85}}>Naxo Timepieces was born from the belief that great watches shouldn't be gatekept. That you don't need to spend thousands to own something with genuine horological heritage.</p></div></Reveal>
+      <Reveal delay={0.2}><div><p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:18,color:BRAND.charcoal,lineHeight:1.85,marginBottom:24}}>We were classmates at Temasek Polytechnic and found out we were equally into old watches. First we swapped finds between lectures. Then we started staying up late to hunt for the next one together.</p><p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:18,color:BRAND.charcoal,lineHeight:1.85}}>Naxo is what that turned into. We think a watch with real history shouldn't need a huge budget, and that buying one shouldn't feel like walking into a shop where nobody talks to you. So we keep it simple: honest condition notes, fair prices, and pop-ups where you can pick a watch up and ask us anything.</p></div></Reveal>
     </div></section>
     {/* Photo Gallery - Horizontal Scroll Parallax */}
     <section style={{background:BRAND.cream,padding:"100px 0 80px",overflow:"hidden"}}>
       <div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
         <Reveal><div style={{textAlign:"center",marginBottom:56}}>
           <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>Behind the Scenes</div>
-          <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,3.5vw,48px)",color:BRAND.navy,fontWeight:700,margin:0}}>The <span style={{fontStyle:"italic",color:BRAND.gold}}>Naxo</span> Family</h2>
+          <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,3.5vw,48px)",color:BRAND.navy,fontWeight:700,margin:0}}>The crew</h2>
         </div></Reveal>
       </div>
       <GalleryScroll photos={["/gallery-1.jpeg","/gallery-2.jpeg","/gallery-3.jpeg","/gallery-4.jpeg","/gallery-5.jpeg","/gallery-6.jpeg","/gallery-7.jpeg","/gallery-8.jpeg","/gallery-9.jpeg","/gallery-10.jpeg","/gallery-11.jpeg"]}/>
@@ -572,7 +571,7 @@ function AboutPage({navigate}) {
     {/* Timeline */}
     <section style={{background:BRAND.navy,padding:"100px 0",position:"relative"}}><div style={{position:"absolute",inset:0,opacity:0.03,backgroundImage:`radial-gradient(circle at 1.5px 1.5px,${BRAND.gold} 1px,transparent 0)`,backgroundSize:"32px 32px"}}/>
       <div style={{maxWidth:900,margin:"0 auto",padding:m?"0 20px":"0 40px",position:"relative"}}>
-        <Reveal><div style={{textAlign:"center",marginBottom:64}}><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>The Journey</div><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,3.5vw,48px)",color:BRAND.cream,fontWeight:700,margin:0}}>How We Got <span style={{fontStyle:"italic",color:BRAND.gold}}>Here</span></h2></div></Reveal>
+        <Reveal><div style={{textAlign:"center",marginBottom:64}}><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>The Journey</div><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,3.5vw,48px)",color:BRAND.cream,fontWeight:700,margin:0}}>How we got here</h2></div></Reveal>
         <div style={{position:"relative"}}><div style={{position:"absolute",left:"50%",top:0,bottom:0,width:1,background:"rgba(201,168,76,0.25)",transform:"translateX(-50%)"}}/>
           {MILESTONES.map((m,i)=>{const isL=i%2===0;return(<Reveal key={i} delay={i*0.08}><div style={{display:"grid",gridTemplateColumns:"1fr 50px 1fr",alignItems:"center",marginBottom:40}}>
             <div style={{textAlign:"right",paddingRight:28,opacity:isL?1:0}}>{isL&&<><div style={{fontFamily:"'Playfair Display',serif",fontSize:14,color:BRAND.gold,fontWeight:700,letterSpacing:2,marginBottom:6}}>{m.year}</div><div style={{fontFamily:"'Playfair Display',serif",fontSize:18,color:BRAND.cream,fontWeight:600,marginBottom:6}}>{m.title}</div><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:14,color:"rgba(245,240,232,0.5)",lineHeight:1.6}}>{m.desc}</div></>}</div>
@@ -584,7 +583,7 @@ function AboutPage({navigate}) {
     </section>
     {/* Values */}
     <section style={{background:BRAND.warmWhite,padding:"100px 0"}}><div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
-      <Reveal><div style={{textAlign:"center",marginBottom:64}}><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>What We Stand For</div><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,3.5vw,48px)",color:BRAND.navy,fontWeight:700,margin:0}}>Our <span style={{fontStyle:"italic",color:BRAND.gold}}>Values</span></h2></div></Reveal>
+      <Reveal><div style={{textAlign:"center",marginBottom:64}}><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>What We Stand For</div><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,3.5vw,48px)",color:BRAND.navy,fontWeight:700,margin:0}}>What we care about</h2></div></Reveal>
       <div style={{display:"grid",gridTemplateColumns:m?"repeat(2,1fr)":"repeat(4,1fr)",gap:24}}>
         {[{i:"shield",t:"Checked first",d:"Every watch is inspected and authenticated before we list it."},{i:"search",t:"Picked, not stocked",d:"Pieces with character and history, not volume."},{i:"users",t:"Built on people",d:"Most of our sales start with a conversation, not a checkout."},{i:"tag",t:"Fair prices",d:"Heritage brands without the heritage markup."}].map((v,i)=>(
           <Reveal key={i} delay={i*0.1}><div style={{padding:"40px 28px",textAlign:"center",border:`1px solid rgba(26,39,68,0.06)`,background:BRAND.warmWhite}}>
@@ -597,7 +596,7 @@ function AboutPage({navigate}) {
     </div></section>
     {/* CTA */}
     <section style={{background:BRAND.deepNavy,padding:"80px 0",textAlign:"center"}}><div style={{maxWidth:600,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
-      <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3.5vw,44px)",color:BRAND.cream,fontWeight:700,margin:"0 0 24px"}}>Ready to Find Your <span style={{color:BRAND.gold,fontStyle:"italic"}}>Next Watch</span>?</h2>
+      <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3.5vw,44px)",color:BRAND.cream,fontWeight:700,margin:"0 0 24px"}}>Let's find you a watch.</h2>
       <div style={{display:"flex",gap:16,justifyContent:"center"}}><GoldButton onClick={()=>navigate("shop")}>Browse Collection</GoldButton><GoldButton ghost onClick={()=>navigate("contact")}>Contact Us</GoldButton></div>
     </div></section>
   </>);
@@ -628,7 +627,7 @@ function JournalPage({navigate}) {
   </>);
 
   return(<>
-    <PageHero tag="Stories & Insights" title="The " titleGold="Journal" subtitle="Deep dives, buying guides, and behind-the-scenes stories from the world of neo-vintage watches."/>
+    <PageHero tag="Stories & Insights" title="What we've learned about watches" titleGold="" subtitle="Buying guides and behind-the-scenes stories from the world of neo-vintage watches."/>
     <section style={{background:BRAND.cream,borderBottom:`1px solid rgba(26,39,68,0.06)`,position:"sticky",top:60,zIndex:50}}>
       <div style={{maxWidth:1400,margin:"0 auto",padding:"16px 40px",display:"flex",gap:8,alignItems:"center"}}>
         {CATS.map(c=><button key={c} onClick={()=>setCat(c)} style={{fontFamily:"'Cormorant Garamond',serif",fontSize:13,letterSpacing:2,textTransform:"uppercase",padding:"8px 20px",background:cat===c?BRAND.navy:"transparent",color:cat===c?BRAND.cream:BRAND.navy,border:`1px solid ${cat===c?BRAND.navy:"rgba(26,39,68,0.12)"}`,cursor:"pointer",transition:"all 0.25s"}}>{c}</button>)}
@@ -680,10 +679,10 @@ function EventsPage({navigate}) {
   ];
 
   return(<>
-    <PageHero tag="Pop-Ups & Events" title="Come See the " titleGold="Watches" subtitle="We believe watches should be seen, held, and tried on."/>
+    <PageHero tag="Pop-Ups & Events" title="Come try one on" titleGold="" subtitle="We believe watches should be seen, held, and tried on."/>
     {/* Upcoming */}
     <section style={{background:BRAND.warmWhite,padding:"80px 0 100px"}}><div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
-      <Reveal><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>What's Next</div><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,44px)",color:BRAND.navy,fontWeight:700,margin:"0 0 48px"}}>Upcoming <span style={{fontStyle:"italic",color:BRAND.gold}}>Events</span></h2></Reveal>
+      <Reveal><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>What's Next</div><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,44px)",color:BRAND.navy,fontWeight:700,margin:"0 0 48px"}}>Coming up</h2></Reveal>
       <div style={{display:"flex",flexDirection:"column",gap:24}}>
         {upcoming.map((ev,i)=>(
           <Reveal key={i} delay={i*0.1}><div style={{display:"grid",gridTemplateColumns:m?"1fr":"1fr 1fr",background:BRAND.cream,border:`1px solid rgba(26,39,68,0.06)`}}>
@@ -709,7 +708,7 @@ function EventsPage({navigate}) {
     {/* Past */}
     <section style={{background:BRAND.navy,padding:"100px 0",position:"relative"}}><div style={{position:"absolute",inset:0,opacity:0.03,backgroundImage:`radial-gradient(circle at 1.5px 1.5px,${BRAND.gold} 1px,transparent 0)`,backgroundSize:"32px 32px"}}/>
       <div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px",position:"relative"}}>
-        <Reveal><div style={{marginBottom:60}}><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>Looking Back</div><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,44px)",color:BRAND.cream,fontWeight:700,margin:"0 0 20px"}}>Past <span style={{fontStyle:"italic",color:BRAND.gold}}>Pop-Ups</span></h2><p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:16,color:"rgba(245,240,232,0.5)",lineHeight:1.7,maxWidth:600}}>Aside from The Retro Factory at Katong Square — which we host monthly — here are the other events and pop-ups we've been part of.</p></div></Reveal>
+        <Reveal><div style={{marginBottom:60}}><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>Looking Back</div><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,44px)",color:BRAND.cream,fontWeight:700,margin:"0 0 20px"}}>Past pop-ups</h2><p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:16,color:"rgba(245,240,232,0.5)",lineHeight:1.7,maxWidth:600}}>Aside from The Retro Factory at Katong Square — which we host monthly — here are the other events and pop-ups we've been part of.</p></div></Reveal>
         <div style={{display:"flex",flexDirection:"column",gap:12}}>
           {past.map((ev,i)=>(
             <Reveal key={i} delay={i*0.06}><div onClick={()=>setExpIdx(expIdx===i?null:i)} style={{background:"rgba(245,240,232,0.04)",border:`1px solid rgba(201,168,76,${expIdx===i?"0.3":"0.08"})`,cursor:"pointer",transition:"all 0.4s",overflow:"hidden"}}>
@@ -731,7 +730,7 @@ function EventsPage({navigate}) {
     <section style={{background:BRAND.deepNavy,padding:"80px 0",textAlign:"center",position:"relative",overflow:"hidden"}}>
       <div style={{position:"absolute",inset:0,opacity:0.04,backgroundImage:`radial-gradient(circle at 2px 2px,${BRAND.gold} 1px,transparent 0)`,backgroundSize:"40px 40px"}}/>
       <div style={{maxWidth:560,margin:"0 auto",padding:m?"0 20px":"0 40px",position:"relative"}}>
-        <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(26px,3vw,40px)",color:BRAND.cream,fontWeight:700,lineHeight:1.2,margin:"0 0 20px"}}>Want Us at <span style={{color:BRAND.gold,fontStyle:"italic"}}>Your Event</span>?</h2>
+        <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(26px,3vw,40px)",color:BRAND.cream,fontWeight:700,lineHeight:1.2,margin:"0 0 20px"}}>Want us at your event?</h2>
         <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:17,color:"rgba(245,240,232,0.5)",marginBottom:36,lineHeight:1.7}}>We're open to collaborations — markets, corporate events, private viewings. Drop us a message.</p>
         <div style={{display:"flex",gap:16,justifyContent:"center",flexWrap:"wrap"}}>
           <a href="https://www.instagram.com/naxotimepieces/" target="_blank" rel="noopener noreferrer" style={{fontFamily:"'Cormorant Garamond',serif",fontSize:13,letterSpacing:2,textTransform:"uppercase",background:"transparent",color:BRAND.cream,border:`1px solid rgba(201,168,76,0.4)`,padding:"14px 28px",cursor:"pointer",fontWeight:600,transition:"all 0.3s",textDecoration:"none"}}
@@ -761,7 +760,7 @@ function HowItWorksPage({navigate}) {
   ];
 
   return(<>
-    <PageHero tag="Sell · Trade · Consign" title="How It " titleGold="Works" subtitle="Thinking about selling, trading, or consigning your watch? Here's how the process works — simple, transparent, and fair."/>
+    <PageHero tag="Sell · Trade · Consign" title="How selling to us works" titleGold="" subtitle="Thinking about selling, trading, or consigning a watch? Here's the process, start to finish."/>
     
     {/* Steps */}
     <section style={{background:BRAND.warmWhite,padding:"80px 0 100px"}}><div style={{maxWidth:900,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
@@ -780,7 +779,7 @@ function HowItWorksPage({navigate}) {
     <section style={{background:BRAND.cream,padding:"80px 0"}}><div style={{maxWidth:1200,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
       <Reveal><div style={{textAlign:"center",marginBottom:56}}>
         <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>Your Options</div>
-        <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:m?"clamp(28px,5vw,36px)":"clamp(32px,3.5vw,44px)",color:BRAND.navy,fontWeight:700,margin:0}}>Three Ways to <span style={{fontStyle:"italic",color:BRAND.gold}}>Work With Us</span></h2>
+        <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:m?"clamp(28px,5vw,36px)":"clamp(32px,3.5vw,44px)",color:BRAND.navy,fontWeight:700,margin:0}}>Three ways to work with us</h2>
       </div></Reveal>
       <div style={{display:"grid",gridTemplateColumns:m?"1fr":"repeat(3,1fr)",gap:24}}>
         {[
@@ -800,7 +799,7 @@ function HowItWorksPage({navigate}) {
     {/* FAQ */}
     <section style={{background:BRAND.warmWhite,padding:"80px 0"}}><div style={{maxWidth:800,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
       <Reveal><div style={{textAlign:"center",marginBottom:48}}>
-        <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:m?"clamp(24px,5vw,32px)":"clamp(28px,3vw,40px)",color:BRAND.navy,fontWeight:700,margin:0}}>Common <span style={{fontStyle:"italic",color:BRAND.gold}}>Questions</span></h2>
+        <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:m?"clamp(24px,5vw,32px)":"clamp(28px,3vw,40px)",color:BRAND.navy,fontWeight:700,margin:0}}>Questions people ask</h2>
       </div></Reveal>
       {[
         {q:"What brands do you buy?",a:"We buy Seiko, Omega, Cartier, Longines, Universal Genève, Tudor, Rolex, JLC, and more. If you're unsure, just send us photos and we'll let you know."},
@@ -818,7 +817,7 @@ function HowItWorksPage({navigate}) {
 
     {/* CTA */}
     <section style={{background:BRAND.deepNavy,padding:"80px 0",textAlign:"center"}}><div style={{maxWidth:560,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
-      <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:m?"clamp(24px,5vw,32px)":"clamp(28px,3vw,40px)",color:BRAND.cream,fontWeight:700,lineHeight:1.2,margin:"0 0 20px"}}>Ready to <span style={{color:BRAND.gold,fontStyle:"italic"}}>Get Started</span>?</h2>
+      <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:m?"clamp(24px,5vw,32px)":"clamp(28px,3vw,40px)",color:BRAND.cream,fontWeight:700,lineHeight:1.2,margin:"0 0 20px"}}>Ready when you are.</h2>
       <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:17,color:"rgba(245,240,232,0.5)",marginBottom:36,lineHeight:1.7}}>Send us your watch details and we'll get back to you within 24 hours.</p>
       <div style={{display:"flex",gap:16,justifyContent:"center",flexWrap:"wrap"}}>
         <GoldButton onClick={()=>navigate("contact")}>Contact Us</GoldButton>
@@ -840,12 +839,12 @@ function ContactPage({navigate}) {
   const inpStyle={width:"100%",padding:"14px 18px",fontFamily:"'Cormorant Garamond',serif",fontSize:15,color:BRAND.navy,background:BRAND.warmWhite,border:`1px solid rgba(26,39,68,0.12)`,outline:"none",letterSpacing:0.5};
 
   return(<>
-    <PageHero tag="Get In Touch" title="Let's " titleGold="Talk Watches" subtitle="Whether you're looking for a specific piece, want to consign, or just want to geek out — we'd love to hear from you."/>
+    <PageHero tag="Get In Touch" title="Let's talk watches" titleGold="" subtitle="Whether you're looking for a specific piece, want to consign, or just want to geek out — we'd love to hear from you."/>
     {/* Channels */}
     <section style={{background:BRAND.warmWhite,padding:"80px 0"}}><div style={{maxWidth:1200,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
       <Reveal><div style={{textAlign:"center",marginBottom:48}}>
         <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>Reach Us On</div>
-        <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,40px)",color:BRAND.navy,fontWeight:700,margin:0}}>Our <span style={{fontStyle:"italic",color:BRAND.gold}}>Channels</span></h2>
+        <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,40px)",color:BRAND.navy,fontWeight:700,margin:0}}>Where to find us</h2>
       </div></Reveal>
       <div style={{display:"grid",gridTemplateColumns:m?"repeat(2,1fr)":"repeat(4,1fr)",gap:16,marginBottom:16}}>
         {channels.slice(0,4).map((ch,i)=>(
@@ -870,7 +869,7 @@ function ContactPage({navigate}) {
     <section style={{background:BRAND.cream,padding:"100px 0"}}><div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px",display:"grid",gridTemplateColumns:m?"1fr":"1fr 1.2fr",gap:m?32:80,alignItems:"start"}}>
       <Reveal><div>
         <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>Send Us a Message</div>
-        <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,40px)",color:BRAND.navy,fontWeight:700,margin:"0 0 24px"}}>Enquiry <span style={{fontStyle:"italic",color:BRAND.gold}}>Form</span></h2>
+        <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,40px)",color:BRAND.navy,fontWeight:700,margin:"0 0 24px"}}>Drop us a message</h2>
         <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:17,color:BRAND.charcoal,lineHeight:1.8,marginBottom:40}}>Drop us a message and we'll get back to you within 24 hours.</p>
         <div style={{padding:"28px 32px",background:BRAND.warmWhite,border:`1px solid rgba(26,39,68,0.06)`}}>
           <div style={{fontFamily:"'Playfair Display',serif",fontSize:16,color:BRAND.navy,fontWeight:600,marginBottom:8}}>Visit Us — By Appointment</div>
@@ -894,7 +893,7 @@ function ContactPage({navigate}) {
       <div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px",position:"relative",display:"grid",gridTemplateColumns:m?"1fr":"1fr 1fr",gap:m?32:60,alignItems:"center"}}>
         <Reveal><div>
           <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>Visit Us</div>
-          <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,44px)",color:BRAND.cream,fontWeight:700,margin:"0 0 32px",lineHeight:1.15}}>Our <span style={{fontStyle:"italic",color:BRAND.gold}}>Location</span></h2>
+          <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,44px)",color:BRAND.cream,fontWeight:700,margin:"0 0 32px",lineHeight:1.15}}>Where we are</h2>
           <div style={{display:"inline-flex",alignItems:"center",gap:10,background:"rgba(201,168,76,0.12)",border:`1px solid rgba(201,168,76,0.25)`,padding:"10px 20px",marginBottom:32}}>
             <span style={{width:8,height:8,borderRadius:"50%",background:BRAND.gold}}/>
             <span style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:3,textTransform:"uppercase",fontWeight:600}}>By Appointment Only</span>
@@ -920,7 +919,7 @@ function ContactPage({navigate}) {
     </section>
     {/* FAQ */}
     <section style={{background:BRAND.warmWhite,padding:"100px 0"}}><div style={{maxWidth:800,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
-      <Reveal><div style={{textAlign:"center",marginBottom:56}}><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>Common Questions</div><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,40px)",color:BRAND.navy,fontWeight:700,margin:0}}>Frequently <span style={{fontStyle:"italic",color:BRAND.gold}}>Asked</span></h2></div></Reveal>
+      <Reveal><div style={{textAlign:"center",marginBottom:56}}><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>Common Questions</div><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,40px)",color:BRAND.navy,fontWeight:700,margin:0}}>Quick answers</h2></div></Reveal>
       <div style={{display:"flex",flexDirection:"column",gap:8}}>
         {faqs.map((faq,i)=>(
           <Reveal key={i} delay={i*0.05}><div onClick={()=>setOpenFaq(openFaq===i?null:i)} style={{background:BRAND.cream,border:`1px solid ${openFaq===i?"rgba(201,168,76,0.3)":"rgba(26,39,68,0.06)"}`,cursor:"pointer",overflow:"hidden"}}>
@@ -964,14 +963,14 @@ function ServicingPage({navigate}) {
   ];
 
   return(<>
-    <PageHero tag="Watch Care" title="Our " titleGold="Servicing" subtitle="Professional care for your timepieces — from battery swaps to full overhauls."/>
+    <PageHero tag="Watch Care" title="Keep it running" titleGold="" subtitle="From battery swaps to full overhauls — we'll tell you honestly what your watch needs."/>
 
     {/* Services Grid */}
     <section style={{background:BRAND.warmWhite,padding:"100px 0"}}>
       <div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
         <Reveal><div style={{textAlign:"center",marginBottom:64}}>
           <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>What We Offer</div>
-          <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,44px)",color:BRAND.navy,fontWeight:700,margin:"0 0 16px"}}>Services & <span style={{fontStyle:"italic",color:BRAND.gold}}>Pricing</span></h2>
+          <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,44px)",color:BRAND.navy,fontWeight:700,margin:"0 0 16px"}}>Services & pricing</h2>
           <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:17,color:BRAND.stone,maxWidth:560,margin:"0 auto",lineHeight:1.7}}>All prices are indicative. Final quotes are given after inspection. We work on vintage and neo-vintage timepieces with care and honesty.</p>
         </div></Reveal>
         <div style={{display:"grid",gridTemplateColumns:m?"1fr":"repeat(2,1fr)",gap:2,background:"rgba(26,39,68,0.06)"}}>
@@ -1008,7 +1007,7 @@ function ServicingPage({navigate}) {
       <div style={{maxWidth:1200,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
         <Reveal><div style={{textAlign:"center",marginBottom:64}}>
           <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>How It Works</div>
-          <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,44px)",color:BRAND.navy,fontWeight:700}}>Simple <span style={{fontStyle:"italic",color:BRAND.gold}}>Process</span></h2>
+          <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,44px)",color:BRAND.navy,fontWeight:700}}>How a repair works</h2>
         </div></Reveal>
         <div style={{display:"grid",gridTemplateColumns:m?"1fr":"repeat(4,1fr)",gap:m?24:0}}>
           {[

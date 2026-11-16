@@ -38,13 +38,14 @@ Marketing + enquiry site for Naxo Timepieces, a Singapore neo-vintage watch deal
 - Never reveal sourcing channels in site copy (a reference was removed from the About story). Be careful with factual claims on the site (stats counters, "years", sold counts) — confirm with the owner before changing numbers.
 
 ## Current state / known good
+- Fair-prices copy says "ask us what a watch costs" because the site deliberately doesn't show prices (don't claim "transparent price ranges upfront").
 - Mobile fixes done: product-drawer close button always visible; shop cards on mobile are image on top + separate text panel (no overlay); drawer image no longer cropped; no blank gap under Enquire Now.
 - Home hero background is `public/hero-watches.jpeg` (darkened with `brightness(0.35) sepia(0.2)` overlay).
 - Footer has the "Brands We Carry" logo strip on every page.
 
 ## Open recommendations (agreed as worth doing, not yet done — ask before starting)
-1. Replace emoji channel icons on the Contact page (📷✈️💬✉️🛒🎵👥) with proper SVG icons.
-2. Rewrite repeated template-y headline pattern ("X *Gold Italic Word*" on nearly every section) and the founder-story copy in a real Naxo voice; drop clichés ("Curating Moments, One Watch at a Time", "by accident").
+1. ~~Replace emoji icons~~ — DONE: all emoji/glyph icons now use the `Icon` component (stroke SVG set in the `ICONS` object near the top of `NaxoApp.jsx`; add new icons there, 24px grid). Don't reintroduce emojis or ✦ glyphs.
+2. ~~Headline/founder copy rewrite~~ — DONE (plain sentence-case section headings; gold italic is used only on the word "actually" in the home hero; About story rewritten). Still template-y and worth a pass: the small all-caps "eyebrow" label above nearly every heading, and the About pull-quote attributed to "The Founders" (owner should supply a real quote).
 3. Owner to confirm stats counters (watches sold, pop-ups, brands, collectors) are accurate.
 4. Decide deliberately whether the navy/gold "heritage luxury" look fits a young, community-driven pop-up brand; any identity shift is a design conversation, not a unilateral change.
 5. Consider reducing the uniform sepia filter on watch photos so the real photography shows.
