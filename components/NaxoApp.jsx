@@ -397,7 +397,7 @@ function HomePage({navigate}) {
         <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:12}}>Pop-ups & Events</div>
         <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,3.5vw,48px)",color:BRAND.navy,fontWeight:700,margin:"0 0 48px"}}>Find us at a pop-up</h2>
         <div style={{display:"grid",gridTemplateColumns:m?"1fr":"1fr 1fr",gap:24}}>
-          {[{title:"The Retro Factory",date:"2–4 Oct 2026",loc:"Katong Square",note:"Free Sake"},{title:"SMUSA Bizneyland",date:"27–28 Oct 2026",loc:"SMU T-Junction",note:"12PM–6PM"}].map((ev,i)=>(
+          {[{title:"Rolling Good Old Times",date:"21–22 Nov 2026",loc:"Fountain Square, Clarke Quay",note:"12PM–10PM"},{title:"The Retro Factory",date:"4–6 Dec 2026",loc:"Katong Square",note:""}].map((ev,i)=>(
             <div key={i} onClick={()=>navigate("events")} style={{border:`1px solid rgba(26,39,68,0.12)`,padding:40,position:"relative",background:BRAND.warmWhite,cursor:"pointer",transition:"all 0.4s"}} onMouseEnter={e=>e.currentTarget.style.borderColor=BRAND.gold} onMouseLeave={e=>e.currentTarget.style.borderColor="rgba(26,39,68,0.12)"}>
               {ev.note&&<div style={{position:"absolute",top:16,right:16,background:BRAND.gold,padding:"6px 14px",fontFamily:"'Cormorant Garamond',serif",fontSize:10,color:BRAND.navy,letterSpacing:2,textTransform:"uppercase",fontWeight:700}}>{ev.note}</div>}
               <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:13,color:BRAND.stone,letterSpacing:3,textTransform:"uppercase",marginBottom:12}}>{ev.date}</div>
@@ -512,7 +512,7 @@ function ShopPage({navigate}) {
 
 // ─── Marquee Banner ───
 function MarqueeBanner({navigate}) {
-  const items=["Monthly pop-ups at Katong Square — The Retro Factory","Buy · Sell · Trade · Consign · Repair","Monthly pop-ups at Katong Square — The Retro Factory","Buy · Sell · Trade · Consign · Repair"];
+  const items=["Next up: Rolling Good Old Times, Clarke Quay, 21–22 Nov","Buy · Sell · Trade · Consign · Repair","Next up: Rolling Good Old Times, Clarke Quay, 21–22 Nov","Buy · Sell · Trade · Consign · Repair"];
   const text=items.join("   /   ");
   return(
     <div style={{background:BRAND.gold,overflow:"hidden",padding:"8px 0",cursor:"pointer"}} onClick={()=>navigate("events")}>
@@ -659,11 +659,15 @@ function EventsPage({navigate}) {
   const m=useIsMobile();
   const[expIdx,setExpIdx]=useState(null);
   const upcoming=[
-    {title:"The Retro Factory",date:"2–4 Oct 2026",time:"10AM–10PM",loc:"Katong Square",addr:"E Coast Rd, #86-88, Singapore 428788",note:"Free Sake",status:"soon"},
-    {title:"Retro Kulture",date:"4 Oct 2026",time:"11AM–7PM",loc:"Kapo Factory Building",addr:"Tai Seng, Upper Paya Lebar",note:"",status:"soon"},
-    {title:"SMUSA Bizneyland",date:"27–28 Oct 2026",time:"12PM–6PM",loc:"SMU T-Junction",addr:"Singapore Management University",note:"",status:"soon"},
+    {title:"Rolling Good Old Times",date:"21–22 Nov 2026",time:"12PM–10PM",loc:"Clarke Quay",addr:"Fountain Square, Clarke Quay",note:"",status:"soon"},
+    {title:"The Retro Factory",date:"4–6 Dec 2026",time:"TBC",loc:"Katong Square",addr:"E Coast Rd, #86-88, Singapore 428788",note:"",status:"soon"},
   ];
   const past=[
+    {title:"Vintage Tidings (Kerbside & Co)",date:"14–15 Nov 2026",loc:"North Bridge Road",recap:"Two days at Kerbside & Co on North Bridge Road."},
+    {title:"The Retro Factory",date:"6–8 Nov 2026",loc:"Katong Square",recap:"Our monthly Retro Factory pop-up, 11AM–10PM daily."},
+    {title:"SMUSA Bizneyland",date:"27–28 Oct 2026",loc:"SMU T-Junction",recap:"Back at SMU for another round of the student-run market."},
+    {title:"Retro Kulture",date:"4 Oct 2026",loc:"Kapo Factory Building",recap:"A one-day market at Kapo Factory Building, Tai Seng."},
+    {title:"The Retro Factory",date:"2–4 Oct 2026",loc:"Katong Square",recap:"Our October Retro Factory pop-up at Katong Square."},
     {title:"SMUSA Bizneyland",date:"Sep 2026",loc:"SMU",recap:"An exciting student-run market at SMU. Great energy from a young crowd discovering vintage watches for the first time."},
     {title:"CSNC Block Party (Common Man Coffee Roasters)",date:"Aug 2026",loc:"52 Chin Swee Rd",recap:"A vibrant block party hosted by Common Man Coffee Roasters. Coffee, community, and vintage watches — a great combination."},
     {title:"SIJE — Singapore International Jewellery Exhibition",date:"Jul 2026",loc:"Marina Bay Sands",recap:"A prestigious exhibition at MBS alongside fine jewellery brands. A new crowd for us and a great platform for the brand."},
