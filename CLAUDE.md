@@ -45,7 +45,7 @@ Marketing + enquiry site for Naxo Timepieces, a Singapore neo-vintage watch deal
 
 ## Open recommendations (agreed as worth doing, not yet done — ask before starting)
 1. ~~Replace emoji icons~~ — DONE: all emoji/glyph icons now use the `Icon` component (stroke SVG set in the `ICONS` object near the top of `NaxoApp.jsx`; add new icons there, 24px grid). Don't reintroduce emojis or ✦ glyphs.
-2. ~~Headline/founder copy rewrite~~ — DONE (plain sentence-case section headings; gold italic is used only on the word "actually" in the home hero; About story rewritten). Still template-y and worth a pass: the small all-caps "eyebrow" label above nearly every heading, and the About pull-quote attributed to "The Founders" (owner should supply a real quote).
+2. ~~Headline/founder copy rewrite~~ — DONE (plain sentence-case section headings; gold italic is used only on the word "actually" in the home hero; About story rewritten). Still template-y and worth a pass: the small all-caps "eyebrow" label above nearly every heading. (About pull-quote is now the owner's own wording.)
 3. Owner to confirm stats counters (watches sold, pop-ups, brands, collectors) are accurate.
 4. Decide deliberately whether the navy/gold "heritage luxury" look fits a young, community-driven pop-up brand; any identity shift is a design conversation, not a unilateral change.
 5. Consider reducing the uniform sepia filter on watch photos so the real photography shows.
