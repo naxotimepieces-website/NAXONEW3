@@ -397,7 +397,7 @@ function HomePage({navigate}) {
         <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:12}}>Pop-ups & Events</div>
         <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,3.5vw,48px)",color:BRAND.navy,fontWeight:700,margin:"0 0 48px"}}>Find us at a pop-up</h2>
         <div style={{display:"grid",gridTemplateColumns:m?"1fr":"1fr 1fr",gap:24}}>
-          {[{title:"Rolling Good Old Times",date:"21–22 Nov 2026",loc:"Fountain Square, Clarke Quay",note:"12PM–10PM"},{title:"The Retro Factory",date:"4–6 Dec 2026",loc:"Katong Square",note:""}].map((ev,i)=>(
+          {[{title:"Rolling Good Old Times",date:"21–22 Nov 2026",loc:"Fountain Square, Clarke Quay",note:"12PM–10PM"},{title:"The Retro Factory",date:"4–6 Dec 2026",loc:"Katong Square",note:"11AM–10PM"}].map((ev,i)=>(
             <div key={i} onClick={()=>navigate("events")} style={{border:`1px solid rgba(26,39,68,0.12)`,padding:40,position:"relative",background:BRAND.warmWhite,cursor:"pointer",transition:"all 0.4s"}} onMouseEnter={e=>e.currentTarget.style.borderColor=BRAND.gold} onMouseLeave={e=>e.currentTarget.style.borderColor="rgba(26,39,68,0.12)"}>
               {ev.note&&<div style={{position:"absolute",top:16,right:16,background:BRAND.gold,padding:"6px 14px",fontFamily:"'Cormorant Garamond',serif",fontSize:10,color:BRAND.navy,letterSpacing:2,textTransform:"uppercase",fontWeight:700}}>{ev.note}</div>}
               <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:13,color:BRAND.stone,letterSpacing:3,textTransform:"uppercase",marginBottom:12}}>{ev.date}</div>
@@ -512,7 +512,11 @@ function ShopPage({navigate}) {
 
 // ─── Marquee Banner ───
 function MarqueeBanner({navigate}) {
-  const items=["Next up: Rolling Good Old Times, Clarke Quay, 21–22 Nov","Buy · Sell · Trade · Consign · Repair","Next up: Rolling Good Old Times, Clarke Quay, 21–22 Nov","Buy · Sell · Trade · Consign · Repair"];
+  // Switches itself to the December event from 23 Nov (SGT)
+  const[afterClarke,setAfterClarke]=useState(false);
+  useEffect(()=>{setAfterClarke(Date.now()>=Date.UTC(2026,10,22,16,0))},[]);
+  const NEXT=afterClarke?"Next up: The Retro Factory, Katong Square, 4–6 Dec":"Next up: Rolling Good Old Times, Clarke Quay, 21–22 Nov";
+  const items=[NEXT,"Buy · Sell · Trade · Consign · Repair",NEXT,"Buy · Sell · Trade · Consign · Repair"];
   const text=items.join("   /   ");
   return(
     <div style={{background:BRAND.gold,overflow:"hidden",padding:"8px 0",cursor:"pointer"}} onClick={()=>navigate("events")}>
@@ -660,10 +664,10 @@ function EventsPage({navigate}) {
   const[expIdx,setExpIdx]=useState(null);
   const upcoming=[
     {title:"Rolling Good Old Times",date:"21–22 Nov 2026",time:"12PM–10PM",loc:"Clarke Quay",addr:"Fountain Square, Clarke Quay",note:"",status:"soon"},
-    {title:"The Retro Factory",date:"4–6 Dec 2026",time:"TBC",loc:"Katong Square",addr:"E Coast Rd, #86-88, Singapore 428788",note:"",status:"soon"},
+    {title:"The Retro Factory",date:"4–6 Dec 2026",time:"11AM–10PM",loc:"Katong Square",addr:"E Coast Rd, #86-88, Singapore 428788",note:"",status:"soon"},
   ];
   const past=[
-    {title:"Vintage Tidings (Kerbside & Co)",date:"14–15 Nov 2026",loc:"North Bridge Road",recap:"Two days at Kerbside & Co on North Bridge Road."},
+    {title:"Vintage Tidings (Kerbside & Co)",date:"14–15 Nov 2026",loc:"778A North Bridge Road",recap:"Two days at Kerbside & Co on North Bridge Road."},
     {title:"The Retro Factory",date:"6–8 Nov 2026",loc:"Katong Square",recap:"Our monthly Retro Factory pop-up, 11AM–10PM daily."},
     {title:"SMUSA Bizneyland",date:"27–28 Oct 2026",loc:"SMU T-Junction",recap:"Back at SMU for another round of the student-run market."},
     {title:"Retro Kulture",date:"4 Oct 2026",loc:"Kapo Factory Building",recap:"A one-day market at Kapo Factory Building, Tai Seng."},
