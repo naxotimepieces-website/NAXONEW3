@@ -317,7 +317,7 @@ function GoldButton({children,onClick,ghost=false}) {
 function HomePage({navigate}) {
   const[loaded,setLoaded]=useState(false);const[hovId,setHovId]=useState(null);const[sellHov,setSellHov]=useState(null);const m=useIsMobile();
   useEffect(()=>{setTimeout(()=>setLoaded(true),100)},[]);
-  const featured=WATCHES.filter(w=>!w.sold).slice(0,9);
+  const FEATURED_IDS=[54,63,52,50,51,60,68,66,65];const featured=FEATURED_IDS.map(id=>WATCHES.find(w=>w.id===id)).filter(w=>w&&!w.sold);
 
   return(<>
     {/* HERO */}
