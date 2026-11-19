@@ -188,6 +188,8 @@ function Footer({navigate}) {
     {src:"/brand-tudor.png",name:"Tudor"},
     {src:"/brand-cartier.png",name:"Cartier"},
     {src:"/brand-longines.png",name:"Longines"},
+    {src:"/brand-universal.png",name:"Universal Genève",scale:1.35},
+    {src:"/brand-favreleuba.png",name:"Favre Leuba",scale:0.95},
     {src:"/brand-patek.png",name:"Patek Philippe"},
     {src:"/brand-seiko.png",name:"Seiko"},
     {src:"/brand-grandseiko.png",name:"Grand Seiko"},
@@ -202,7 +204,7 @@ function Footer({navigate}) {
           <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:10,color:"rgba(245,240,232,0.3)",letterSpacing:4,textTransform:"uppercase",textAlign:"center",marginBottom:24}}>Brands We Carry</div>
           <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",alignItems:"center",gap:m?20:36}}>
             {brands.map(b=>(
-              <img key={b.name} src={b.src} alt={b.name} style={{height:m?20:26,objectFit:"contain",opacity:0.35,filter:"brightness(0) invert(1)",transition:"opacity 0.3s"}}
+              <img key={b.name} src={b.src} alt={b.name} style={{height:(m?20:26)*(b.scale||1),objectFit:"contain",opacity:0.35,filter:"brightness(0) invert(1)",transition:"opacity 0.3s"}}
                 onMouseEnter={e=>e.target.style.opacity="0.75"}
                 onMouseLeave={e=>e.target.style.opacity="0.35"}
               />
