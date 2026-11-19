@@ -316,7 +316,7 @@ function HomePage({navigate}) {
       <div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-end",marginBottom:60}}>
           <div>
-            <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:12}}>The Collection</div>
+            
             <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(36px,4vw,56px)",color:BRAND.navy,fontWeight:700,margin:0}}>Just in</h2>
           </div>
           <a onClick={()=>navigate("shop")} style={{fontFamily:"'Cormorant Garamond',serif",fontSize:13,color:BRAND.navy,letterSpacing:3,textTransform:"uppercase",textDecoration:"none",borderBottom:`1px solid ${BRAND.gold}`,paddingBottom:4,cursor:"pointer"}}>View All →</a>
@@ -371,7 +371,7 @@ function HomePage({navigate}) {
     <section style={{background:BRAND.cream,padding:"80px 0",borderTop:`1px solid rgba(201,168,76,0.1)`}}>
       <div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
         <Reveal><div style={{textAlign:"center",marginBottom:52}}>
-          <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:12}}>Why Naxo</div>
+          
           <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,40px)",color:BRAND.navy,fontWeight:700,margin:0}}>Why people buy from us</h2>
         </div></Reveal>
         <div style={{display:"grid",gridTemplateColumns:m?"repeat(2,1fr)":"repeat(4,1fr)",gap:m?16:24}}>
@@ -394,7 +394,7 @@ function HomePage({navigate}) {
     {/* EVENTS */}
     <section style={{background:BRAND.cream,padding:"100px 0"}}>
       <div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
-        <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:12}}>Pop-ups & Events</div>
+        
         <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,3.5vw,48px)",color:BRAND.navy,fontWeight:700,margin:"0 0 48px"}}>Find us at a pop-up</h2>
         <div style={{display:"grid",gridTemplateColumns:m?"1fr":"1fr 1fr",gap:24}}>
           {[{title:"Rolling Good Old Times",date:"21–22 Nov 2026",loc:"Fountain Square, Clarke Quay",note:"12PM–10PM"},{title:"The Retro Factory",date:"4–6 Dec 2026",loc:"Katong Square",note:"11AM–10PM"}].map((ev,i)=>(
@@ -568,7 +568,7 @@ function AboutPage({navigate}) {
     <section style={{background:BRAND.cream,padding:"100px 0 80px",overflow:"hidden"}}>
       <div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
         <Reveal><div style={{textAlign:"center",marginBottom:56}}>
-          <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>Behind the Scenes</div>
+          
           <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,3.5vw,48px)",color:BRAND.navy,fontWeight:700,margin:0}}>The crew</h2>
         </div></Reveal>
       </div>
@@ -577,7 +577,7 @@ function AboutPage({navigate}) {
     {/* Timeline */}
     <section style={{background:BRAND.navy,padding:"100px 0",position:"relative"}}><div style={{position:"absolute",inset:0,opacity:0.03,backgroundImage:`radial-gradient(circle at 1.5px 1.5px,${BRAND.gold} 1px,transparent 0)`,backgroundSize:"32px 32px"}}/>
       <div style={{maxWidth:900,margin:"0 auto",padding:m?"0 20px":"0 40px",position:"relative"}}>
-        <Reveal><div style={{textAlign:"center",marginBottom:64}}><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>The Journey</div><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,3.5vw,48px)",color:BRAND.cream,fontWeight:700,margin:0}}>How we got here</h2></div></Reveal>
+        <Reveal><div style={{textAlign:"center",marginBottom:64}}><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,3.5vw,48px)",color:BRAND.cream,fontWeight:700,margin:0}}>How we got here</h2></div></Reveal>
         <div style={{position:"relative"}}><div style={{position:"absolute",left:"50%",top:0,bottom:0,width:1,background:"rgba(201,168,76,0.25)",transform:"translateX(-50%)"}}/>
           {MILESTONES.map((m,i)=>{const isL=i%2===0;return(<Reveal key={i} delay={i*0.08}><div style={{display:"grid",gridTemplateColumns:"1fr 50px 1fr",alignItems:"center",marginBottom:40}}>
             <div style={{textAlign:"right",paddingRight:28,opacity:isL?1:0}}>{isL&&<><div style={{fontFamily:"'Playfair Display',serif",fontSize:14,color:BRAND.gold,fontWeight:700,letterSpacing:2,marginBottom:6}}>{m.year}</div><div style={{fontFamily:"'Playfair Display',serif",fontSize:18,color:BRAND.cream,fontWeight:600,marginBottom:6}}>{m.title}</div><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:14,color:"rgba(245,240,232,0.5)",lineHeight:1.6}}>{m.desc}</div></>}</div>
@@ -589,7 +589,7 @@ function AboutPage({navigate}) {
     </section>
     {/* Values */}
     <section style={{background:BRAND.warmWhite,padding:"100px 0"}}><div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
-      <Reveal><div style={{textAlign:"center",marginBottom:64}}><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>What We Stand For</div><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,3.5vw,48px)",color:BRAND.navy,fontWeight:700,margin:0}}>What we care about</h2></div></Reveal>
+      <Reveal><div style={{textAlign:"center",marginBottom:64}}><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,3.5vw,48px)",color:BRAND.navy,fontWeight:700,margin:0}}>What we care about</h2></div></Reveal>
       <div style={{display:"grid",gridTemplateColumns:m?"repeat(2,1fr)":"repeat(4,1fr)",gap:24}}>
         {[{i:"shield",t:"Checked first",d:"Every watch is inspected and authenticated before we list it."},{i:"search",t:"Picked, not stocked",d:"Pieces with character and history, not volume."},{i:"users",t:"Built on people",d:"Most of our sales start with a conversation, not a checkout."},{i:"tag",t:"Fair prices",d:"Heritage brands without the heritage markup."}].map((v,i)=>(
           <Reveal key={i} delay={i*0.1}><div style={{padding:"40px 28px",textAlign:"center",border:`1px solid rgba(26,39,68,0.06)`,background:BRAND.warmWhite}}>
@@ -692,7 +692,7 @@ function EventsPage({navigate}) {
     <PageHero tag="Pop-Ups & Events" title="Come try one on" titleGold="" subtitle="We believe watches should be seen, held, and tried on."/>
     {/* Upcoming */}
     <section style={{background:BRAND.warmWhite,padding:"80px 0 100px"}}><div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
-      <Reveal><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>What's Next</div><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,44px)",color:BRAND.navy,fontWeight:700,margin:"0 0 48px"}}>Coming up</h2></Reveal>
+      <Reveal><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,44px)",color:BRAND.navy,fontWeight:700,margin:"0 0 48px"}}>Coming up</h2></Reveal>
       <div style={{display:"flex",flexDirection:"column",gap:24}}>
         {upcoming.map((ev,i)=>(
           <Reveal key={i} delay={i*0.1}><div style={{display:"grid",gridTemplateColumns:m?"1fr":"1fr 1fr",background:BRAND.cream,border:`1px solid rgba(26,39,68,0.06)`}}>
@@ -718,7 +718,7 @@ function EventsPage({navigate}) {
     {/* Past */}
     <section style={{background:BRAND.navy,padding:"100px 0",position:"relative"}}><div style={{position:"absolute",inset:0,opacity:0.03,backgroundImage:`radial-gradient(circle at 1.5px 1.5px,${BRAND.gold} 1px,transparent 0)`,backgroundSize:"32px 32px"}}/>
       <div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px",position:"relative"}}>
-        <Reveal><div style={{marginBottom:60}}><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>Looking Back</div><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,44px)",color:BRAND.cream,fontWeight:700,margin:"0 0 20px"}}>Past pop-ups</h2><p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:16,color:"rgba(245,240,232,0.5)",lineHeight:1.7,maxWidth:600}}>Aside from The Retro Factory at Katong Square — which we host monthly — here are the other events and pop-ups we've been part of.</p></div></Reveal>
+        <Reveal><div style={{marginBottom:60}}><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,44px)",color:BRAND.cream,fontWeight:700,margin:"0 0 20px"}}>Past pop-ups</h2><p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:16,color:"rgba(245,240,232,0.5)",lineHeight:1.7,maxWidth:600}}>Aside from The Retro Factory at Katong Square — which we host monthly — here are the other events and pop-ups we've been part of.</p></div></Reveal>
         <div style={{display:"flex",flexDirection:"column",gap:12}}>
           {past.map((ev,i)=>(
             <Reveal key={i} delay={i*0.06}><div onClick={()=>setExpIdx(expIdx===i?null:i)} style={{background:"rgba(245,240,232,0.04)",border:`1px solid rgba(201,168,76,${expIdx===i?"0.3":"0.08"})`,cursor:"pointer",transition:"all 0.4s",overflow:"hidden"}}>
@@ -788,7 +788,7 @@ function HowItWorksPage({navigate}) {
     {/* Options comparison */}
     <section style={{background:BRAND.cream,padding:"80px 0"}}><div style={{maxWidth:1200,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
       <Reveal><div style={{textAlign:"center",marginBottom:56}}>
-        <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>Your Options</div>
+        
         <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:m?"clamp(28px,5vw,36px)":"clamp(32px,3.5vw,44px)",color:BRAND.navy,fontWeight:700,margin:0}}>Three ways to work with us</h2>
       </div></Reveal>
       <div style={{display:"grid",gridTemplateColumns:m?"1fr":"repeat(3,1fr)",gap:24}}>
@@ -853,7 +853,7 @@ function ContactPage({navigate}) {
     {/* Channels */}
     <section style={{background:BRAND.warmWhite,padding:"80px 0"}}><div style={{maxWidth:1200,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
       <Reveal><div style={{textAlign:"center",marginBottom:48}}>
-        <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>Reach Us On</div>
+        
         <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,40px)",color:BRAND.navy,fontWeight:700,margin:0}}>Where to find us</h2>
       </div></Reveal>
       <div style={{display:"grid",gridTemplateColumns:m?"repeat(2,1fr)":"repeat(4,1fr)",gap:16,marginBottom:16}}>
@@ -878,9 +878,9 @@ function ContactPage({navigate}) {
     {/* Form */}
     <section style={{background:BRAND.cream,padding:"100px 0"}}><div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px",display:"grid",gridTemplateColumns:m?"1fr":"1fr 1.2fr",gap:m?32:80,alignItems:"start"}}>
       <Reveal><div>
-        <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>Send Us a Message</div>
+        
         <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,40px)",color:BRAND.navy,fontWeight:700,margin:"0 0 24px"}}>Drop us a message</h2>
-        <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:17,color:BRAND.charcoal,lineHeight:1.8,marginBottom:40}}>Drop us a message and we'll get back to you within 24 hours.</p>
+        <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:17,color:BRAND.charcoal,lineHeight:1.8,marginBottom:40}}>We'll get back to you within 24 hours.</p>
         <div style={{padding:"28px 32px",background:BRAND.warmWhite,border:`1px solid rgba(26,39,68,0.06)`}}>
           <div style={{fontFamily:"'Playfair Display',serif",fontSize:16,color:BRAND.navy,fontWeight:600,marginBottom:8}}>Visit Us — By Appointment</div>
           <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:15,color:BRAND.stone,lineHeight:1.7}}>Mu Templar Service Centre<br/>Far East Plaza, #02-20A<br/>14 Scotts Road, Singapore 228213</div>
@@ -929,7 +929,7 @@ function ContactPage({navigate}) {
     </section>
     {/* FAQ */}
     <section style={{background:BRAND.warmWhite,padding:"100px 0"}}><div style={{maxWidth:800,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
-      <Reveal><div style={{textAlign:"center",marginBottom:56}}><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>Common Questions</div><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,40px)",color:BRAND.navy,fontWeight:700,margin:0}}>Quick answers</h2></div></Reveal>
+      <Reveal><div style={{textAlign:"center",marginBottom:56}}><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,40px)",color:BRAND.navy,fontWeight:700,margin:0}}>Quick answers</h2></div></Reveal>
       <div style={{display:"flex",flexDirection:"column",gap:8}}>
         {faqs.map((faq,i)=>(
           <Reveal key={i} delay={i*0.05}><div onClick={()=>setOpenFaq(openFaq===i?null:i)} style={{background:BRAND.cream,border:`1px solid ${openFaq===i?"rgba(201,168,76,0.3)":"rgba(26,39,68,0.06)"}`,cursor:"pointer",overflow:"hidden"}}>
@@ -979,7 +979,7 @@ function ServicingPage({navigate}) {
     <section style={{background:BRAND.warmWhite,padding:"100px 0"}}>
       <div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
         <Reveal><div style={{textAlign:"center",marginBottom:64}}>
-          <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>What We Offer</div>
+          
           <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,44px)",color:BRAND.navy,fontWeight:700,margin:"0 0 16px"}}>Services & pricing</h2>
           <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:17,color:BRAND.stone,maxWidth:560,margin:"0 auto",lineHeight:1.7}}>All prices are indicative. Final quotes are given after inspection. We work on vintage and neo-vintage timepieces with care and honesty.</p>
         </div></Reveal>
@@ -1016,7 +1016,7 @@ function ServicingPage({navigate}) {
     <section style={{background:BRAND.cream,padding:"100px 0"}}>
       <div style={{maxWidth:1200,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
         <Reveal><div style={{textAlign:"center",marginBottom:64}}>
-          <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>How It Works</div>
+          
           <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,44px)",color:BRAND.navy,fontWeight:700}}>How a repair works</h2>
         </div></Reveal>
         <div style={{display:"grid",gridTemplateColumns:m?"1fr":"repeat(4,1fr)",gap:m?24:0}}>
@@ -1040,7 +1040,7 @@ function ServicingPage({navigate}) {
     <section style={{background:BRAND.warmWhite,padding:"100px 0"}}>
       <div style={{maxWidth:800,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
         <Reveal><div style={{textAlign:"center",marginBottom:56}}>
-          <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:5,textTransform:"uppercase",marginBottom:16}}>Common Questions</div>
+          
           <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(28px,3vw,40px)",color:BRAND.navy,fontWeight:700}}>FAQ</h2>
         </div></Reveal>
         {faqs.map((faq,i)=>(
