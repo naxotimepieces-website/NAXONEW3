@@ -11,6 +11,21 @@ const BRAND = {
 };
 
 const WATCHES = [
+  {id: 157, brand: "Omega", model: "De Ville Floral Dial Ref. 111.0107", era: "", price: 0, priceRange: "", style: "Dress", condition: "Used", movement: "Manual Wind", case_size: "29mm", case_material: "Stainless Steel", dial: "Silver Floral", strap: "Grey Leather", tag: "", desc: "For sale is an Omega De Ville “Engraved Dial” Ref. 111.0107 floral dial.\n\nAmazing beauty this is, with a silver floral textured dial paired with black roman numerals and leaf hands.\n\nDefinitely a piece that’s perfectly suited as a daily casual piece as well for those who can’t help just being naturally stylish.\n\nManual winding movement.", img: "/watch-157-omega-deville-floral.jpeg", sold: false},
+  {id: 158, brand: "Seiko", model: "Exceline Rectangular Roman", era: "1980s", price: 0, priceRange: "", style: "Art Deco", condition: "Used", movement: "Quartz", case_size: "", case_material: "Stainless Steel", dial: "White Roman", strap: "Black Leather", tag: "", desc: "For sale is a vintage Seiko Exceline.\n\nJust look at the design on the case shape, so elegantly paired with the blue hands and numerals. Especially that subtle design in the middle of the dial. Just perfect\n\nQuartz movement.", img: "/watch-158-seiko-exceline.jpeg", sold: false},
+  {id: 159, brand: "Seiko", model: "Quartz Tank Gold Roman", era: "", price: 0, priceRange: "", style: "Art Deco", condition: "Used", movement: "Quartz", case_size: "", case_material: "Gold Plated", dial: "White Roman", strap: "Brown Leather", tag: "", desc: "For sale is a vintage Seiko tank.\n\nA piece that’s very sought after because of its shape and size, it brings similarity to a Cartier tank, but for 1/10th of the price!\n\nUnder the Seiko line there has been many different versions of a tank style but for this design, I feel the shape really does bring out the vibe of the tank. From the cabochon crown, to the case shape having the curves at the sides. Just so\n\nQuartz movement.", img: "/watch-159-seiko-quartz-tank.jpeg", sold: false},
+  {id: 160, brand: "Seiko", model: "Dolce Octagonal Art Deco 10K Gold", era: "", price: 0, priceRange: "", style: "Art Deco", condition: "Used", movement: "Quartz", case_size: "", case_material: "10K Gold Capped", dial: "Black & Gold", strap: "Black Croc-Embossed Leather", tag: "", desc: "For sale is a Seiko Dolce “Art Deco” 10K Gold.\n\nQuite a unique piece, different from the other dolce design. The case is 10K gold-capped.\n\nThe dial is definitely the star of the show, with a subtle floral embossed pattern and around it, it has a brushed golden ring for the roman numerals and minute track, topped with golden Breguet hands.\n\nDefinitely a piece not to be missed!\n\nQuartz movement.", img: "/watch-160-seiko-dolce-octagonal.jpeg", sold: false},
+  {id: 161, brand: "Omega", model: "De Ville Ellipse Waffle Dial", era: "", price: 0, priceRange: "", style: "Dress", condition: "Used", movement: "Quartz", case_size: "", case_material: "Gold Plated", dial: "Gold Waffle", strap: "Black Leather", tag: "", desc: "For sale is an Omega De Ville ellipse shaped.\n\nThis is a very clean watch, with a rare waffle looking dial. Its shape has the vibe of the Ellipse which became one of most defining watches of the Patek line up.\n\nAn interesting feature is that there’s no crown to it, which really makes it very sleek looking.\n\nQuartz movement.\nOriginal bracelet.", img: "/watch-161-omega-deville-ellipse.jpeg", sold: false},
+  {id: 162, brand: "Universal Genève", model: "Tonneau Gradient Dial", era: "1970s", price: 0, priceRange: "", style: "Dress", condition: "Used", movement: "Manual Wind", case_size: "", case_material: "Stainless Steel", dial: "Brown Fumé", strap: "Black Leather", tag: "", desc: "For sale is a Universal Genève piece.\n\nLovely Fumé Dial in Dark Brown, which was the first thing that caught my attention already. This piece was made in the 70s which uses the Caliber: Universal Genève 1-42.\n\nThe dial at the 11 o’clock has some dirt on it. Scratches visible on the watch.\n\nManual winding movement.", img: "/watch-162-ug-tonneau-fume.jpeg", sold: false},
+  {id: 163, brand: "Omega", model: "De Ville Red Vignette Dial", era: "1970s", price: 0, priceRange: "", style: "Dress", condition: "Used", movement: "Manual Wind", case_size: "", case_material: "Stainless Steel", dial: "Red Vignette", strap: "Black Croc-Embossed Leather", tag: "", desc: "For sale is a vintage Omega De Ville red vignette dial.\n\nSomething very similar to the Rolex Cellini, but for one tenth of the price!\nIts condition is quite clean, and it’s a manual winding piece, lastly that red vignette dial which fades to black is striking.", img: "/watch-163-omega-deville-red-vignette.jpeg", sold: false},
+  {id: 164, brand: "Omega", model: "De Ville Gold Champagne Dial", era: "", price: 0, priceRange: "", style: "Dress", condition: "Used", movement: "Manual Wind", case_size: "", case_material: "Gold Plated", dial: "Champagne", strap: "Black Leather", tag: "", desc: "For sale is a vintage Omega De Ville.\n\nWhat more can I say for this piece here, simple, clean and classic. Champagne coloured dial, in very minty condition for its age..\n\nManual winding.", img: "/watch-164-omega-deville-champagne.jpeg", sold: false},
+  {id: 165, brand: "Universal Genève", model: "Altesse Extra-Plat Starry Night", era: "", price: 0, priceRange: "", style: "Dress", condition: "Used", movement: "Manual Wind", case_size: "30mm", case_material: "Stainless Steel", dial: "Blue Starry Night", strap: "Black Lizard-Embossed Leather", tag: "", desc: "For sale is a Universal Genève “Altesse Extra-Plat” starry night.\n\nA piece I was super happy to pick up! An extra-plat (French for ultra-thin) version and to top it off, the dial, beautifully looking like a “starry night” lacquer dial.\n\nThe whole piece is unpolished, comes with the original strap and buckle tool!\n\nManual winding movement.", img: "/watch-165-ug-altesse-starry.jpeg", sold: false},
+  {id: 166, brand: "Seiko", model: "Dolce Gold Roman Marble Dial", era: "", price: 0, priceRange: "", style: "Dress", condition: "Used", movement: "Quartz", case_size: "30mm", case_material: "Gold Plated", dial: "Cream Roman", strap: "Taupe Leather", tag: "", desc: "For sale is a Seiko Dolce black marble.\n\nInsane condition here, I would say it’s as close as it can get to a NOS piece. unpolished condition with the original blue sticker case back still intact.\n\nThe dial is so captivating under lighting and paired with the Roman numerals. This is a marble-dial Dolce with gold roman numerals, It comes with a micro ribbon-esque bezel design, giving that lil rugged feel to the watch.\n\nA piece here is not to be missed!\n\nQuartz movement.", img: "/watch-166-seiko-dolce-gold-roman.jpeg", sold: false},
+  {id: 167, brand: "Longines", model: "Square Silver Dial Roman", era: "", price: 0, priceRange: "", style: "Art Deco", condition: "Used", movement: "Manual Wind", case_size: "", case_material: "Stainless Steel", dial: "Silver Roman", strap: "Black Leather", tag: "", desc: "For sale is a vintage Longines flat square.\n\nIs a simple piece, which makes it easy to wear it on a daily basis. With Roman numeral marking at the 12 3 6 9 o clock. Uses a manual winding movement.", img: "/watch-167-longines-square.jpeg", sold: false},
+  {id: 168, brand: "Seiko", model: "Quartz Oval Gold Grey Dial", era: "1980s", price: 0, priceRange: "", style: "Dress", condition: "Used", movement: "Quartz", case_size: "", case_material: "Gold Plated", dial: "Grey Roman", strap: "Black Leather", tag: "", desc: "For sale is a sought after, oval shaped Seiko piece!\n\nThis piece here can be worn or stacked with any tennis bracelet etc. Definitely can be worn by a female or even a male wrist!\n\nThe shape of the oval-ish and the gold coloured case matches well with the Roman numerals.\n\nQuartz movement.", img: "/watch-168-seiko-oval-gold-grey.jpeg", sold: false},
+  {id: 169, brand: "Seiko", model: "Dolce Arabic White Marble Dial", era: "1980s", price: 0, priceRange: "", style: "Dress", condition: "Used", movement: "Quartz", case_size: "30mm", case_material: "Stainless Steel", dial: "White Marble", strap: "Black Croc-Embossed Leather", tag: "", desc: "For sale is a Seiko Dolce white marble.\n\nThis is one of the nicest combo I have ever seen Seiko did. The white stone marble, paired so well with the blue hands and numerals. These numerals also pop up, as they weren’t printed on to the dial itself.\n\nQuartz movement.", img: "/watch-169-seiko-dolce-white-marble.jpeg", sold: false},
+  {id: 170, brand: "Seiko", model: "Acier Octagonal Pair", era: "1980s", price: 0, priceRange: "", style: "Dress", condition: "Used", movement: "Quartz", case_size: "", case_material: "Stainless Steel", dial: "White & Blue Textured", strap: "Brown Croc-Embossed Leather", tag: "", desc: "For sale is a Seiko Acier.\n\nIt comes in 2 different colour variants. One of the them is the clean white dial while the other one is a blue textured dial.\n\nThese pieces were made under the acier collection, a collection that was produced for 2 years and also was in the Seiko catalog, after the 2 years it was combined and moved over to the Credor line up.\n\nThe case shape also features a very interesting a sort of a stepped case at the sides, making it quite a simple and clean watch that can be worn with any outfit.\n\nQuartz movement.", img: "/watch-170-seiko-acier-pair.jpeg", sold: false},
+  {id: 171, brand: "Omega", model: "De Ville ‘Emerald’ Andrew Grima", era: "1970s", price: 0, priceRange: "", style: "Art Deco", condition: "Used", movement: "Manual Wind", case_size: "", case_material: "Gold Plated", dial: "Brown Linen", strap: "Taupe Leather", tag: "", desc: "For sale is an Omega De Ville ‘Emerald’ Andrew Grima.\n\nIt all began in 1969, Omega commissioned London-based artist jeweler Andrew Grima to design a collection of watches, About Time.\n\nThe original collection was a huge success and later in the 70s Omega launched a range of watches inspired by Grima’s work. Under the series of watches they were more affordable and marketed through the De Ville, Constellation and Jeux d’Or ranges.\n\nThis watch is an Omega De Ville ‘Emerald’ so called for the shape of the Gem cut Rock Crystal. The dial is textured linen dial.\n\nManual winding.", img: "/watch-171-omega-deville-emerald.jpeg", sold: false},
   {id: 146, brand: "Universal Genève", model: "Automatic Date Gold Case", era: "", price: 0, priceRange: "", style: "Dress", condition: "Used", movement: "Automatic", case_size: "34mm", case_material: "Gold Plated", dial: "", strap: "", tag: "", desc: "A piece of beauty.\n\nThis is an UG model that was one of the last few pieces produced before the whole brand was discontinued.\n\nThere were about 1000 pieces that were produced and came onto the market, but today very few appear and it was our pleasure to come across it, I knew we had to bring it home immediately!\n\nThis piece to me the beauty is at the back, where it features a stunning micro rotor, with an open case-back for you to view it!", img: "/watch-146-ug-automatic-date-gold.jpeg", sold: false},
   {id: 147, brand: "Omega", model: "Square Honeycomb Dial Gold", era: "1950s", price: 0, priceRange: "", style: "Art Deco", condition: "Used", movement: "Manual Wind", case_size: "", case_material: "Gold Filled", dial: "Waffle", strap: "", tag: "", desc: "For sale is this rare configuration Omega cioccolatone!\n\nA rare and highly collectible Omega “Cioccolatone” from the early 1950s, featuring the bold “Grand Tank Carre” which basically is an oversized square case.\n\nThe dial itself is a rare waffle dial with a sub seconds at the bottom. What makes this piece quite uncommon is that usually for this model it was always made in 14/18k solid gold, but for this particular piece it was instead crafted via 14k gold filled! Watch comes with an original omega buckle too.", img: "/watch-147-omega-cioccolatone.jpeg", sold: false},
   {id: 148, brand: "Seiko", model: "Two-Tone Small Seconds Arabic", era: "1987", price: 0, priceRange: "", style: "Dress", condition: "Used", movement: "Manual Wind", case_size: "", case_material: "Steel & Gold", dial: "Arabic", strap: "", tag: "", desc: "A piece that is understated on the wrist but unforgettable in the books of Seiko history!\n\nIt was a significant revelation for collectors when they discovered Seiko’s brief dabble into using Swiss movements for the “Mech” collection (MC) in the 1980s.\n\nFeatured in the 1987 JDM catalog, the MC series was crafted for those with an appreciation for the intricate charm of mechanical watches.\n\nThis piece here was both giving vintage vibes while having a minimalist dial layout with sub-seconds positioned just above the 6 o’clock mark.\n\nThe heart of this watch is the Swiss calibre 138.001 from Fabrique d’horlogerie de Fontainemelon (FHF), a surprising yet captivating choice that adds to its allure.", img: "/watch-148-seiko-mc-small-seconds.jpeg", sold: false},
@@ -400,7 +415,7 @@ function GoldButton({children,onClick,ghost=false}) {
 // PAGE: HOME
 // ═══════════════════════════════════════════
 
-function HomePage({navigate}) {
+function HomePage({navigate,openWatch}) {
   const[loaded,setLoaded]=useState(false);const[hovId,setHovId]=useState(null);const[sellHov,setSellHov]=useState(null);const m=useIsMobile();
   useEffect(()=>{setTimeout(()=>setLoaded(true),100)},[]);
   const FEATURED_IDS=[54,63,52,50,51,60,68,66,65];const featured=FEATURED_IDS.map(id=>WATCHES.find(w=>w.id===id)).filter(w=>w&&!w.sold);
@@ -477,7 +492,7 @@ function HomePage({navigate}) {
         </div>
         <div style={{display:"grid",gridTemplateColumns:m?"repeat(2,1fr)":"repeat(3,1fr)",gap:24}}>
           {featured.map((w,i)=>(
-            <div key={w.id} onMouseEnter={()=>setHovId(w.id)} onMouseLeave={()=>setHovId(null)} onClick={()=>navigate("shop")} style={{position:"relative",cursor:"pointer",overflow:"hidden",background:BRAND.cream}}>
+            <div key={w.id} onMouseEnter={()=>setHovId(w.id)} onMouseLeave={()=>setHovId(null)} onClick={()=>openWatch(w.id)} style={{position:"relative",cursor:"pointer",overflow:"hidden",background:BRAND.cream}}>
               <div style={{width:"100%",paddingBottom:"100%",background:`url('${w.img}') center 20%/cover`,transition:"transform 0.8s cubic-bezier(0.22,1,0.36,1)",transform:hovId===w.id?"scale(1.05)":"scale(1)"}}/>
               <div style={{position:"absolute",bottom:0,left:0,right:0,padding:"40px 24px 24px",background:"linear-gradient(transparent,rgba(15,26,48,0.85))"}}>
                 <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:11,color:BRAND.gold,letterSpacing:3,textTransform:"uppercase",marginBottom:6}}>{[w.era,w.style].filter(Boolean).join(" · ")}</div>
@@ -576,26 +591,48 @@ function HomePage({navigate}) {
 // PAGE: SHOP
 // ═══════════════════════════════════════════
 
-function ShopPage({navigate}) {
+function ShopPage({navigate,openWatch,F,setF}) {
   const m=useIsMobile();
-  const[brand,setBrand]=useState("All");const[style,setStyle]=useState("All");const[sort,setSort]=useState("Newest");const[showSold,setShowSold]=useState(false);const[sel,setSel]=useState(null);const[q,setQ]=useState("");const[hovId,setHovId]=useState(null);
-  const BRANDS=["All",...Object.entries(WATCHES.reduce((a,w)=>{a[w.brand]=(a[w.brand]||0)+1;return a},{})).sort((a,b)=>b[1]-a[1]).map(e=>e[0])];const STYLES=["All","Dress","Diver","Sport","Art Deco"];
-  let f=WATCHES.filter(w=>{if(brand!=="All"&&w.brand!==brand)return false;if(style!=="All"&&w.style!==style)return false;if(!showSold&&w.sold)return false;if(q){const s=q.toLowerCase();return(w.brand+w.model+w.era+w.style).toLowerCase().includes(s)}return true});
-  if(sort==="Price: Low → High")f.sort((a,b)=>a.price-b.price);if(sort==="Price: High → Low")f.sort((a,b)=>b.price-a.price);
+  const{brand,style,sort,showSold,q}=F;
+  const set=(k,v)=>setF(p=>({...p,[k]:v}));
+  const[hovId,setHovId]=useState(null);
+  const pool=WATCHES.filter(w=>showSold||!w.sold);
+  const brandCounts=Object.entries(pool.reduce((a,w)=>{a[w.brand]=(a[w.brand]||0)+1;return a},{})).sort((a,b)=>a[0].localeCompare(b[0]));
+  const STYLES=["Dress","Diver","Sport","Art Deco"];
+  let f=pool.filter(w=>{if(brand!=="All"&&w.brand!==brand)return false;if(style!=="All"&&w.style!==style)return false;if(q){const s=q.toLowerCase();return(w.brand+" "+w.model+" "+w.era+" "+w.style).toLowerCase().includes(s)}return true});
+  if(sort==="Brand A–Z")f=[...f].sort((a,b)=>a.brand.localeCompare(b.brand));
+  const selS={fontFamily:"'Cormorant Garamond',serif",fontSize:15,color:BRAND.navy,background:BRAND.warmWhite,border:`1px solid rgba(26,39,68,0.15)`,padding:"10px 12px",outline:"none",cursor:"pointer",minWidth:m?0:170,flex:m?"1 1 45%":"0 0 auto"};
+  const chip=(label,onX)=><button key={label} onClick={onX} style={{fontFamily:"'Cormorant Garamond',serif",fontSize:13,color:BRAND.navy,background:"rgba(201,168,76,0.16)",border:"none",padding:"5px 12px",cursor:"pointer",display:"flex",alignItems:"center",gap:8}}>{label}<span style={{fontSize:15,lineHeight:1,opacity:0.6}}>×</span></button>;
+  const active=brand!=="All"||style!=="All"||q;
 
   return(<>
     <PageHero tag="The Collection" title="In the case right now" titleGold="" subtitle="Everything we currently have, plus the pieces that have already found a home. Open any watch for the full details."/>
     {/* Filters */}
-    <section style={{background:BRAND.cream,borderBottom:`1px solid rgba(26,39,68,0.06)`,position:"sticky",top:60,zIndex:50}}>
-      <div style={{maxWidth:1400,margin:"0 auto",padding:"16px 40px",display:"flex",alignItems:"center",gap:m?8:20,flexWrap:"wrap",overflowX:m?"auto":"visible"}}>
-        <input type="text" placeholder="Search..." value={q} onChange={e=>setQ(e.target.value)} style={{padding:"8px 14px",fontFamily:"'Cormorant Garamond',serif",fontSize:14,color:BRAND.navy,background:BRAND.warmWhite,border:`1px solid rgba(26,39,68,0.1)`,outline:"none",width:180,letterSpacing:1}}/>
-        <div style={{width:1,height:28,background:"rgba(26,39,68,0.1)"}}/>
-        {BRANDS.map(b=><button key={b} onClick={()=>setBrand(b)} style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,padding:"6px 14px",background:brand===b?BRAND.navy:"transparent",color:brand===b?BRAND.cream:BRAND.navy,border:`1px solid ${brand===b?BRAND.navy:"rgba(26,39,68,0.12)"}`,cursor:"pointer",transition:"all 0.2s"}}>{b}</button>)}
-        <div style={{width:1,height:28,background:"rgba(26,39,68,0.1)"}}/>
-        {STYLES.map(s=><button key={s} onClick={()=>setStyle(s)} style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,padding:"6px 14px",background:style===s?BRAND.navy:"transparent",color:style===s?BRAND.cream:BRAND.navy,border:`1px solid ${style===s?BRAND.navy:"rgba(26,39,68,0.12)"}`,cursor:"pointer",transition:"all 0.2s"}}>{s}</button>)}
-        <div style={{flex:1}}/>
-        <label style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.stone,display:"flex",alignItems:"center",gap:6,cursor:"pointer"}}><input type="checkbox" checked={showSold} onChange={e=>setShowSold(e.target.checked)} style={{accentColor:BRAND.gold}}/>Sold</label>
-        <select value={sort} onChange={e=>setSort(e.target.value)} style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.navy,background:BRAND.warmWhite,border:`1px solid rgba(26,39,68,0.12)`,padding:"6px 10px",outline:"none",cursor:"pointer"}}>{["Newest","Price: Low → High","Price: High → Low"].map(o=><option key={o}>{o}</option>)}</select>
+    <section style={{background:BRAND.cream,borderBottom:`1px solid rgba(26,39,68,0.08)`,position:m?"static":"sticky",top:92,zIndex:50}}>
+      <div style={{maxWidth:1400,margin:"0 auto",padding:m?"16px 20px":"16px 40px"}}>
+        <div style={{display:"flex",alignItems:"center",gap:m?10:14,flexWrap:"wrap"}}>
+          <input type="text" placeholder="Search watches" value={q} onChange={e=>set("q",e.target.value)} style={{padding:"10px 14px",fontFamily:"'Cormorant Garamond',serif",fontSize:15,color:BRAND.navy,background:BRAND.warmWhite,border:`1px solid rgba(26,39,68,0.15)`,outline:"none",width:m?"100%":240,letterSpacing:0.5}}/>
+          <select aria-label="Brand" value={brand} onChange={e=>set("brand",e.target.value)} style={selS}>
+            <option value="All">All brands</option>
+            {brandCounts.map(([b,n])=><option key={b} value={b}>{b} ({n})</option>)}
+          </select>
+          <select aria-label="Style" value={style} onChange={e=>set("style",e.target.value)} style={selS}>
+            <option value="All">All styles</option>
+            {STYLES.map(x=><option key={x} value={x}>{x}</option>)}
+          </select>
+          <select aria-label="Sort" value={sort} onChange={e=>set("sort",e.target.value)} style={selS}>
+            {["Newest","Brand A–Z"].map(o=><option key={o}>{o}</option>)}
+          </select>
+          {!m&&<div style={{flex:1}}/>}
+          <label style={{fontFamily:"'Cormorant Garamond',serif",fontSize:14,color:BRAND.stone,display:"flex",alignItems:"center",gap:8,cursor:"pointer",width:m?"100%":"auto"}}><input type="checkbox" checked={showSold} onChange={e=>set("showSold",e.target.checked)} style={{accentColor:BRAND.gold,width:16,height:16}}/>Include sold</label>
+        </div>
+        <div style={{display:"flex",alignItems:"center",gap:10,flexWrap:"wrap",marginTop:12}}>
+          <span style={{fontFamily:"'Cormorant Garamond',serif",fontSize:14,color:BRAND.stone,letterSpacing:1}}>{f.length} {f.length===1?"watch":"watches"}</span>
+          {brand!=="All"&&chip(brand,()=>set("brand","All"))}
+          {style!=="All"&&chip(style,()=>set("style","All"))}
+          {q&&chip("“"+q+"”",()=>set("q",""))}
+          {active&&<button onClick={()=>setF(p=>({...p,brand:"All",style:"All",q:""}))} style={{fontFamily:"'Cormorant Garamond',serif",fontSize:13,color:BRAND.stone,background:"none",border:"none",borderBottom:`1px solid ${BRAND.gold}`,cursor:"pointer",padding:"2px 0"}}>Clear all</button>}
+        </div>
       </div>
     </section>
     {/* Grid */}
@@ -604,7 +641,7 @@ function ShopPage({navigate}) {
         {f.length===0?<div style={{textAlign:"center",padding:"100px 0",fontFamily:"'Cormorant Garamond',serif",fontSize:20,color:BRAND.stone}}>No watches found — try adjusting filters</div>:
         <div style={{display:"grid",gridTemplateColumns:m?"repeat(2,1fr)":"repeat(3,1fr)",gap:20}}>
           {f.map((w,i)=>(
-            <div key={w.id} onMouseEnter={()=>setHovId(w.id)} onMouseLeave={()=>setHovId(null)} onClick={()=>setSel(w)} style={{display:"flex",flexDirection:"column",cursor:"pointer",overflow:"hidden",background:BRAND.cream}}>
+            <div key={w.id} onMouseEnter={()=>setHovId(w.id)} onMouseLeave={()=>setHovId(null)} onClick={()=>openWatch(w.id)} style={{display:"flex",flexDirection:"column",cursor:"pointer",overflow:"hidden",background:BRAND.cream}}>
               <div style={{width:"100%",paddingBottom:"100%",position:"relative",overflow:"hidden",flexShrink:0}}>
                 <div style={{position:"absolute",inset:0,background:`url('${w.img}') center 20%/cover`,transition:"transform 0.8s cubic-bezier(0.22,1,0.36,1)",transform:hovId===w.id?"scale(1.05)":"scale(1)"}}/>
                 {w.tag&&!w.sold&&<div style={{position:"absolute",top:10,left:10,background:w.tag==="Just In"?BRAND.gold:BRAND.navy,color:w.tag==="Just In"?BRAND.navy:BRAND.gold,fontFamily:"'Cormorant Garamond',serif",fontSize:10,letterSpacing:2,textTransform:"uppercase",padding:"4px 10px",fontWeight:600}}>{w.tag}</div>}
@@ -632,29 +669,6 @@ function ShopPage({navigate}) {
         <GoldButton onClick={()=>navigate("contact")}>Request a Watch</GoldButton>
       </div>
     </section>
-    {/* Drawer */}
-    {sel&&<><div onClick={()=>setSel(null)} style={{position:"fixed",inset:0,zIndex:200,background:"rgba(15,26,48,0.6)",backdropFilter:"blur(4px)",animation:"fadeIn 0.3s ease"}}/>
-    <div style={{position:"fixed",top:0,right:0,maxHeight:"100vh",zIndex:201,width:m?"100vw":"min(680px,90vw)",background:BRAND.warmWhite,boxShadow:"-20px 0 60px rgba(0,0,0,0.3)",overflowY:"auto",animation:"slideIn 0.4s cubic-bezier(0.22,1,0.36,1)"}}>
-      <button onClick={()=>setSel(null)} style={{position:"fixed",top:m?112:20,right:m?16:20,zIndex:210,background:BRAND.navy,border:"none",color:BRAND.cream,width:48,height:48,borderRadius:"50%",cursor:"pointer",fontSize:20,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 4px 16px rgba(0,0,0,0.3)",flexShrink:0}}>✕</button>
-      <div style={{width:"100%",maxHeight:"70vh",overflow:"hidden",background:BRAND.cream,marginTop:0,display:"flex",alignItems:"center",justifyContent:"center"}}><img src={sel.img} alt={sel.brand+" "+sel.model} style={{width:"100%",height:"auto",maxHeight:"70vh",objectFit:"contain",display:"block"}}/></div>
-      <div style={{padding:m?"32px 24px 80px":"40px 40px 60px"}}>
-        <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:4,textTransform:"uppercase",marginBottom:8}}>{[sel.era,sel.style].filter(Boolean).join(" · ")}</div>
-        <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:m?28:36,color:BRAND.navy,fontWeight:700,margin:"0 0 4px"}}>{sel.brand}</h2>
-        <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:20,color:BRAND.stone,margin:"0 0 16px"}}>{sel.model}</p>
-        {sel.sold&&<div style={{fontFamily:"'Playfair Display',serif",fontSize:16,color:BRAND.stone,fontWeight:600,marginBottom:24,textDecoration:"line-through"}}>Sold</div>}
-        <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:17,color:BRAND.charcoal,lineHeight:1.8,marginBottom:40,whiteSpace:"pre-line"}}>{sel.desc}</p>
-        <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:11,color:BRAND.gold,letterSpacing:4,textTransform:"uppercase",marginBottom:16,paddingBottom:12,borderBottom:`1px solid rgba(201,168,76,0.2)`}}>Specifications</div>
-        <div style={{display:"grid",gridTemplateColumns:m?"1fr":"1fr 1fr",gap:"16px 32px",marginBottom:40}}>
-          {[["Movement",sel.movement],["Case",sel.case_size],["Material",sel.case_material],["Dial",sel.dial],["Strap",sel.strap],["Condition",sel.condition]].filter(([l,v])=>v).map(([l,v])=><div key={l}><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:11,color:BRAND.stone,letterSpacing:2,textTransform:"uppercase",marginBottom:4}}>{l}</div><div style={{fontFamily:"'Playfair Display',serif",fontSize:15,color:BRAND.navy,fontWeight:600}}>{v}</div></div>)}
-        </div>
-        {!sel.sold?<GoldButton onClick={()=>window.open("https://wa.me/6588255367?text=Hi%20Naxo!%20I%27m%20interested%20in%20the%20"+encodeURIComponent(sel.brand+" "+sel.model),"_blank")}>Enquire Now</GoldButton>:
-        <div style={{textAlign:"center",padding:"24px",background:BRAND.cream,border:`1px solid rgba(201,168,76,0.2)`}}>
-          <div style={{fontFamily:"'Playfair Display',serif",fontSize:18,color:BRAND.navy,fontWeight:600,marginBottom:8}}>This piece has found a new home</div>
-          <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:15,color:BRAND.stone,marginBottom:16}}>Interested in something similar? We can source one for you.</p>
-          <GoldButton onClick={()=>window.open("https://wa.me/6588255367?text=Hi%20Naxo!%20I%20saw%20the%20"+encodeURIComponent(sel.brand+" "+sel.model)+"%20is%20sold.%20Can%20you%20source%20a%20similar%20piece%3F","_blank")}>Contact Us to Source</GoldButton>
-        </div>}
-      </div>
-    </div></>}
   </>);
 }
 
@@ -1253,11 +1267,75 @@ function MascotWidget() {
   );
 }
 
+function WatchPage({navigate,openWatch,goBack,watchId}) {
+  const m=useIsMobile();
+  const w=WATCHES.find(x=>x.id===watchId);
+  if(!w)return(<section style={{padding:"200px 20px 120px",textAlign:"center",background:BRAND.warmWhite}}>
+    <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:20,color:BRAND.stone,marginBottom:24}}>We couldn't find that watch.</p>
+    <GoldButton onClick={()=>navigate("shop")}>Back to the collection</GoldButton></section>);
+  const related=[...WATCHES.filter(x=>x.id!==w.id&&!x.sold&&x.brand===w.brand),...WATCHES.filter(x=>x.id!==w.id&&!x.sold&&x.brand!==w.brand&&x.style===w.style)].slice(0,4);
+  const name=w.brand+" "+w.model;
+  const lab={fontFamily:"'Cormorant Garamond',serif",fontSize:11,color:BRAND.stone,letterSpacing:2,textTransform:"uppercase",marginBottom:4};
+  return(<>
+    <section style={{background:BRAND.warmWhite,paddingTop:m?118:140,paddingBottom:m?60:100}}>
+      <div style={{maxWidth:1300,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
+        <a onClick={goBack} style={{display:"inline-block",fontFamily:"'Cormorant Garamond',serif",fontSize:14,color:BRAND.navy,letterSpacing:3,textTransform:"uppercase",cursor:"pointer",borderBottom:`1px solid ${BRAND.gold}`,paddingBottom:3,marginBottom:m?20:36}}>← Back to the collection</a>
+        <div style={{display:"grid",gridTemplateColumns:m?"1fr":"1.1fr 1fr",gap:m?28:64,alignItems:"start"}}>
+          <div style={{position:m?"relative":"sticky",top:m?0:130,background:BRAND.cream,display:"flex",alignItems:"center",justifyContent:"center",overflow:"hidden"}}>
+            <img src={w.img} alt={name} style={{width:"100%",height:"auto",maxHeight:m?"none":"82vh",objectFit:"contain",display:"block"}}/>
+            {w.sold&&<div style={{position:"absolute",top:16,left:16,background:BRAND.navy,color:BRAND.cream,fontFamily:"'Cormorant Garamond',serif",fontSize:12,letterSpacing:3,textTransform:"uppercase",padding:"6px 14px"}}>Sold</div>}
+          </div>
+          <div>
+            <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:12,color:BRAND.gold,letterSpacing:4,textTransform:"uppercase",marginBottom:10}}>{[w.era,w.style].filter(Boolean).join(" · ")}</div>
+            <h1 style={{fontFamily:"'Playfair Display',serif",fontSize:m?34:46,color:BRAND.navy,fontWeight:700,lineHeight:1.1,margin:"0 0 8px"}}>{w.brand}</h1>
+            <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:m?20:24,color:BRAND.stone,margin:"0 0 28px",lineHeight:1.3}}>{w.model}</p>
+            {!w.sold?<div style={{marginBottom:32}}><GoldButton onClick={()=>window.open("https://wa.me/6588255367?text=Hi%20Naxo!%20I%27m%20interested%20in%20the%20"+encodeURIComponent(name),"_blank")}>Enquire Now</GoldButton></div>:
+            <div style={{padding:"20px 24px",background:BRAND.cream,border:`1px solid rgba(201,168,76,0.25)`,marginBottom:32}}>
+              <div style={{fontFamily:"'Playfair Display',serif",fontSize:18,color:BRAND.navy,fontWeight:600,marginBottom:6}}>This piece has found a new home</div>
+              <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:16,color:BRAND.stone,margin:"0 0 16px"}}>Interested in something similar? We can source one for you.</p>
+              <GoldButton onClick={()=>window.open("https://wa.me/6588255367?text=Hi%20Naxo!%20I%20saw%20the%20"+encodeURIComponent(name)+"%20is%20sold.%20Can%20you%20source%20a%20similar%20piece%3F","_blank")}>Contact Us to Source</GoldButton>
+            </div>}
+            <p style={{fontFamily:"'Cormorant Garamond',serif",fontSize:18,color:BRAND.charcoal,lineHeight:1.8,margin:"0 0 36px",whiteSpace:"pre-line"}}>{w.desc}</p>
+            <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:11,color:BRAND.gold,letterSpacing:4,textTransform:"uppercase",marginBottom:16,paddingBottom:12,borderBottom:`1px solid rgba(201,168,76,0.25)`}}>Specifications</div>
+            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"18px 32px"}}>
+              {[["Movement",w.movement],["Case size",w.case_size],["Material",w.case_material],["Dial",w.dial],["Strap",w.strap],["Condition",w.condition]].filter(([l,v])=>v).map(([l,v])=><div key={l}><div style={lab}>{l}</div><div style={{fontFamily:"'Playfair Display',serif",fontSize:15,color:BRAND.navy,fontWeight:600,lineHeight:1.4}}>{v}</div></div>)}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {related.length>0&&<section style={{background:BRAND.cream,padding:m?"48px 0 56px":"72px 0 90px"}}>
+      <div style={{maxWidth:1300,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
+        <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:m?26:32,color:BRAND.navy,fontWeight:700,margin:"0 0 28px"}}>You might also like</h2>
+        <div style={{display:"grid",gridTemplateColumns:m?"repeat(2,1fr)":"repeat(4,1fr)",gap:m?14:20}}>
+          {related.map(r=><div key={r.id} onClick={()=>openWatch(r.id)} style={{cursor:"pointer",background:BRAND.warmWhite}}>
+            <div style={{width:"100%",paddingBottom:"100%",position:"relative"}}><div style={{position:"absolute",inset:0,background:`url('${r.img}') center 20%/cover`}}/></div>
+            <div style={{padding:"12px 14px 16px"}}><div style={{fontFamily:"'Playfair Display',serif",fontSize:15,color:BRAND.navy,fontWeight:600}}>{r.brand}</div><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:13,color:BRAND.stone,marginTop:2,lineHeight:1.3}}>{r.model}</div></div>
+          </div>)}
+        </div>
+      </div>
+    </section>}
+  </>);
+}
 export default function NaxoApp() {
   const[page,setPage]=useState("home");const[scrolled,setScrolled]=useState(false);const[transitioning,setTransitioning]=useState(false);
+  const[watchId,setWatchId]=useState(null);
+  const[F,setF]=useState({brand:"All",style:"All",sort:"Newest",showSold:false,q:""});
+  const pageRef=useRef(page);pageRef.current=page;
+  const prevPage=useRef("shop");const savedY=useRef(0);const inApp=useRef(false);
   useEffect(()=>{const h=()=>setScrolled(window.scrollY>60);window.addEventListener("scroll",h);return()=>window.removeEventListener("scroll",h)},[]);
-  const navigate=(p)=>{if(p===page)return;setTransitioning(true);setTimeout(()=>{setPage(p);window.scrollTo(0,0);setTimeout(()=>setTransitioning(false),50)},300)};
-  const pages={home:HomePage,shop:ShopPage,about:AboutPage,journal:JournalPage,events:EventsPage,contact:ContactPage,howitworks:HowItWorksPage,servicing:ServicingPage};
+  const go=(p,o={})=>{setTransitioning(true);setTimeout(()=>{setPage(p);if(o.id!=null)setWatchId(o.id);setTimeout(()=>window.scrollTo({top:o.restore?savedY.current:0,behavior:"instant"}),40);setTimeout(()=>setTransitioning(false),50)},300)};
+  useEffect(()=>{
+    const mt=window.location.hash.match(/^#watch-(\d+)$/);
+    if(mt){setWatchId(+mt[1]);setPage("watch")}
+    const pop=()=>{const x=window.location.hash.match(/^#watch-(\d+)$/);
+      if(x)go("watch",{id:+x[1]});
+      else if(pageRef.current==="watch")go(prevPage.current||"shop",{restore:true})};
+    window.addEventListener("popstate",pop);return()=>window.removeEventListener("popstate",pop)},[]);
+  const navigate=(p)=>{if(p===page)return;if(window.location.hash)window.history.pushState(null,"",window.location.pathname);go(p)};
+  const openWatch=(id)=>{savedY.current=window.scrollY;if(pageRef.current!=="watch")prevPage.current=pageRef.current;inApp.current=true;window.history.pushState(null,"","#watch-"+id);go("watch",{id})};
+  const goBack=()=>{if(inApp.current&&window.location.hash)window.history.back();else{if(window.location.hash)window.history.replaceState(null,"",window.location.pathname);go("shop")}};
+  const pages={home:HomePage,shop:ShopPage,about:AboutPage,journal:JournalPage,events:EventsPage,contact:ContactPage,howitworks:HowItWorksPage,servicing:ServicingPage,watch:WatchPage};
   const Page=pages[page]||HomePage;
 
   return(
@@ -1277,10 +1355,10 @@ export default function NaxoApp() {
       `}</style>
       <div style={{position:"fixed",top:0,left:0,right:0,zIndex:100}}>
         <MarqueeBanner navigate={navigate}/>
-        <Nav scrolled={scrolled} currentPage={page} navigate={navigate}/>
+        <Nav scrolled={scrolled} currentPage={page==="watch"?"shop":page} navigate={navigate}/>
       </div>
       <div style={{opacity:transitioning?0:1,transform:transitioning?"translateY(12px)":"translateY(0)",transition:"all 0.3s cubic-bezier(0.22,1,0.36,1)"}}>
-        <Page navigate={navigate}/>
+        <Page navigate={navigate} openWatch={openWatch} goBack={goBack} watchId={watchId} F={F} setF={setF}/>
       </div>
       <Footer navigate={navigate}/>
 
