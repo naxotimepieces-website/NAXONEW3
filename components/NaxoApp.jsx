@@ -610,7 +610,9 @@ function HomePage({navigate,openWatch}) {
 function ShopPage({navigate,openWatch,F,setF}) {
   const m=useIsMobile();
   const{brand,style,sort,showSold,q}=F;
-  const set=(k,v)=>setF(p=>({...p,[k]:v}));
+  const set=(k,v)=>setF(p=>({...p,[k]:v,page:1}));
+  const PER=12;
+  const gridRef=useRef(null);
   const[hovId,setHovId]=useState(null);
   const pool=WATCHES.filter(w=>showSold||!w.sold);
   const brandCounts=Object.entries(pool.reduce((a,w)=>{a[w.brand]=(a[w.brand]||0)+1;return a},{})).sort((a,b)=>a[0].localeCompare(b[0]));
@@ -620,6 +622,12 @@ function ShopPage({navigate,openWatch,F,setF}) {
   const selS={fontFamily:"'Cormorant Garamond',serif",fontSize:15,color:BRAND.navy,background:BRAND.warmWhite,border:`1px solid rgba(26,39,68,0.15)`,padding:"10px 12px",outline:"none",cursor:"pointer",minWidth:m?0:170,flex:m?"1 1 45%":"0 0 auto"};
   const chip=(label,onX)=><button key={label} onClick={onX} style={{fontFamily:"'Cormorant Garamond',serif",fontSize:13,color:BRAND.navy,background:"rgba(201,168,76,0.16)",border:"none",padding:"5px 12px",cursor:"pointer",display:"flex",alignItems:"center",gap:8}}>{label}<span style={{fontSize:15,lineHeight:1,opacity:0.6}}>×</span></button>;
   const active=brand!=="All"||style!=="All"||q;
+  const pages=Math.max(1,Math.ceil(f.length/PER));
+  const page=Math.min(F.page||1,pages);
+  const shown=f.slice((page-1)*PER,page*PER);
+  const goPage=n=>{setF(p=>({...p,page:n}));setTimeout(()=>{if(gridRef.current)window.scrollTo({top:gridRef.current.getBoundingClientRect().top+window.scrollY-(m?90:170),behavior:"smooth"})},30)};
+  const nums=[];for(let i=1;i<=pages;i++){if(i===1||i===pages||Math.abs(i-page)<=1||(page<=3&&i<=4)||(page>=pages-2&&i>=pages-3))nums.push(i);else if(nums[nums.length-1]!=="…")nums.push("…")}
+  const pb=(on,dis)=>({fontFamily:"'Cormorant Garamond',serif",fontSize:16,minWidth:40,height:40,padding:"0 10px",border:on?`1px solid ${BRAND.navy}`:"1px solid transparent",background:on?BRAND.navy:"transparent",color:on?BRAND.cream:BRAND.navy,opacity:dis?0.3:1,cursor:dis?"default":"pointer",letterSpacing:1});
 
   return(<>
     <PageHero tag="The Collection" title="In the case right now" titleGold="" subtitle="Everything we currently have, plus the pieces that have already found a home. Open any watch for the full details."/>
@@ -647,7 +655,7 @@ function ShopPage({navigate,openWatch,F,setF}) {
           {brand!=="All"&&chip(brand,()=>set("brand","All"))}
           {style!=="All"&&chip(style,()=>set("style","All"))}
           {q&&chip("“"+q+"”",()=>set("q",""))}
-          {active&&<button onClick={()=>setF(p=>({...p,brand:"All",style:"All",q:""}))} style={{fontFamily:"'Cormorant Garamond',serif",fontSize:13,color:BRAND.stone,background:"none",border:"none",borderBottom:`1px solid ${BRAND.gold}`,cursor:"pointer",padding:"2px 0"}}>Clear all</button>}
+          {active&&<button onClick={()=>setF(p=>({...p,brand:"All",style:"All",q:"",page:1}))} style={{fontFamily:"'Cormorant Garamond',serif",fontSize:13,color:BRAND.stone,background:"none",border:"none",borderBottom:`1px solid ${BRAND.gold}`,cursor:"pointer",padding:"2px 0"}}>Clear all</button>}
         </div>
       </div>
     </section>
@@ -655,8 +663,8 @@ function ShopPage({navigate,openWatch,F,setF}) {
     <section style={{padding:"48px 0 100px",background:BRAND.warmWhite}}>
       <div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px"}}>
         {f.length===0?<div style={{textAlign:"center",padding:"100px 0",fontFamily:"'Cormorant Garamond',serif",fontSize:20,color:BRAND.stone}}>No watches found — try adjusting filters</div>:
-        <div style={{display:"grid",gridTemplateColumns:m?"repeat(2,1fr)":"repeat(3,1fr)",gap:20}}>
-          {f.map((w,i)=>(
+        <div ref={gridRef} style={{display:"grid",gridTemplateColumns:m?"repeat(2,1fr)":"repeat(3,1fr)",gap:20}}>
+          {shown.map((w,i)=>(
             <div key={w.id} onMouseEnter={()=>setHovId(w.id)} onMouseLeave={()=>setHovId(null)} onClick={()=>openWatch(w.id)} style={{display:"flex",flexDirection:"column",cursor:"pointer",overflow:"hidden",background:BRAND.cream}}>
               <div style={{width:"100%",paddingBottom:"100%",position:"relative",overflow:"hidden",flexShrink:0}}>
                 <div style={{position:"absolute",inset:0,background:`url('${w.img}') center 20%/cover`,transition:"transform 0.8s cubic-bezier(0.22,1,0.36,1)",transform:hovId===w.id?"scale(1.05)":"scale(1)"}}/>
@@ -676,6 +684,12 @@ function ShopPage({navigate,openWatch,F,setF}) {
             </div>
           ))}
         </div>}
+        {pages>1&&<nav aria-label="Pagination" style={{display:"flex",justifyContent:"center",alignItems:"center",gap:m?2:6,marginTop:56,flexWrap:"wrap"}}>
+          <button aria-label="Previous page" disabled={page===1} onClick={()=>goPage(page-1)} style={pb(false,page===1)}>←</button>
+          {nums.map((n,i)=>n==="…"?<span key={"e"+i} style={{fontFamily:"'Cormorant Garamond',serif",color:BRAND.stone,padding:"0 4px"}}>…</span>:<button key={n} aria-current={n===page?"page":undefined} onClick={()=>n!==page&&goPage(n)} style={pb(n===page,false)}>{n}</button>)}
+          <button aria-label="Next page" disabled={page===pages} onClick={()=>goPage(page+1)} style={pb(false,page===pages)}>→</button>
+        </nav>}
+        {f.length>0&&<div style={{textAlign:"center",marginTop:16,fontFamily:"'Cormorant Garamond',serif",fontSize:14,color:BRAND.stone,letterSpacing:1}}>Showing {(page-1)*PER+1}–{Math.min(page*PER,f.length)} of {f.length}</div>}
       </div>
     </section>
     {/* Sourcing CTA */}
@@ -1337,7 +1351,7 @@ function WatchPage({navigate,openWatch,goBack,watchId}) {
 export default function NaxoApp() {
   const[page,setPage]=useState("home");const[scrolled,setScrolled]=useState(false);const[transitioning,setTransitioning]=useState(false);
   const[watchId,setWatchId]=useState(null);
-  const[F,setF]=useState({brand:"All",style:"All",sort:"Newest",showSold:false,q:""});
+  const[F,setF]=useState({brand:"All",style:"All",sort:"Newest",showSold:false,q:"",page:1});
   const pageRef=useRef(page);pageRef.current=page;
   const prevPage=useRef("shop");const savedY=useRef(0);const inApp=useRef(false);
   useEffect(()=>{const h=()=>setScrolled(window.scrollY>60);window.addEventListener("scroll",h);return()=>window.removeEventListener("scroll",h)},[]);
