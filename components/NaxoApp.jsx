@@ -832,6 +832,7 @@ function EventsPage({navigate}) {
     {title:"Vintage Tidings (Kerbside & Co)",date:"14–15 Nov 2026",loc:"778A North Bridge Road",recap:"Two days at Kerbside & Co on North Bridge Road."},
     {title:"The Retro Factory",date:"6–8 Nov 2026",loc:"Katong Square",recap:"Our monthly Retro Factory pop-up, 11AM–10PM daily."},
     {title:"SMUSA Bizneyland",date:"27–28 Oct 2026",loc:"SMU T-Junction",recap:"Back at SMU for another round of the student-run market."},
+    {title:"The Reference Room",date:"24–25 Oct 2026",loc:"Reference Room Cafe",recap:"A two-day collaboration with Reference Room Cafe."},
     {title:"Retro Kulture",date:"4 Oct 2026",loc:"Kapo Factory Building",recap:"A one-day market at Kapo Factory Building, Tai Seng."},
     {title:"The Retro Factory",date:"2–4 Oct 2026",loc:"Katong Square",recap:"Our October Retro Factory pop-up at Katong Square."},
     {title:"SMUSA Bizneyland",date:"Sep 2026",loc:"SMU",recap:"An exciting student-run market at SMU. Great energy from a young crowd discovering vintage watches for the first time."},
