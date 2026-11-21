@@ -370,6 +370,7 @@ function Footer({navigate}) {
     {src:"/brand-seiko.png",name:"Seiko"},
     {src:"/brand-grandseiko.png",name:"Grand Seiko"},
     {src:"/brand-credor.png",name:"Credor"},
+    {src:"/brand-titoni.png",name:"Titoni",scale:1.4},
   ];
   const links=[["Shop","shop"],["About","about"],["Journal","journal"],["Events","events"],["Servicing","servicing"],["Contact","contact"]];
   return (
