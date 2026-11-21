@@ -720,7 +720,7 @@ function GalleryScroll({photos}) {
 function AboutPage({navigate}) {
   const m=useIsMobile();
   return(<>
-    <PageHero tag="Our Story" title="Two classmates, a lot of old watches" titleGold="" subtitle="Naxo started with two friends who couldn't stop looking at watch listings. Now we run pop-ups and sell to people who feel the same way."/>
+    <PageHero tag="Our Story" title="Two classmates, with vintage watches" titleGold="" subtitle="Naxo started with two friends who couldn't stop looking at watch listings. Now we run pop-ups and sell to people who feel the same way."/>
     {/* Story */}
     <section style={{background:BRAND.warmWhite,padding:"100px 0"}}><div style={{maxWidth:1400,margin:"0 auto",padding:m?"0 20px":"0 40px",display:"grid",gridTemplateColumns:m?"1fr":"1fr 1fr",gap:m?32:80,alignItems:"center"}}>
       <Reveal><div style={{borderLeft:`3px solid ${BRAND.gold}`,paddingLeft:40}}><div style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(24px,2.5vw,36px)",color:BRAND.navy,fontWeight:600,lineHeight:1.4,fontStyle:"italic",marginBottom:32}}>"We believe every watch tells a story, good or bad. It's a legacy handed down from one owner to the next, and we get to pass it on."</div><div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:14,color:BRAND.gold,letterSpacing:3,textTransform:"uppercase"}}>— The Founders</div></div></Reveal>
