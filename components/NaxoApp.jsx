@@ -464,7 +464,7 @@ function HomePage({navigate,openWatch}) {
       {/* Stats bar */}
       <div style={{position:"absolute",bottom:0,left:0,right:0,background:"rgba(10,20,45,0.85)",backdropFilter:"blur(12px)",borderTop:`1px solid rgba(201,168,76,0.2)`}}>
         <div style={{maxWidth:1400,margin:"0 auto",padding:m?"16px 20px":"28px 60px",display:"grid",gridTemplateColumns:m?"repeat(2,1fr)":"repeat(4,1fr)",gap:m?16:0}}>
-          {[{n:500,s:"+",l:"Watches Sold"},{n:30,s:"+",l:"Pop-Ups Held"},{n:15,s:"",l:"Brands Curated"},{n:1300,s:"+",l:"Happy Collectors"}].map((s,i)=>(
+          {[{n:500,s:"+",l:"Watches Sold"},{n:30,s:"+",l:"Pop-Ups Held"},{n:15,s:"",l:"Brands Curated"},{n:500,s:"+",l:"Happy Collectors"}].map((s,i)=>(
             <div key={i} style={{textAlign:"center",padding:m?0:"0 40px",borderRight:!m&&i<3?`1px solid rgba(201,168,76,0.15)`:"none"}}>
               <div style={{fontFamily:"'Playfair Display',serif",fontSize:m?26:36,color:BRAND.gold,fontWeight:700,lineHeight:1}}><Counter end={s.n} suffix={s.s}/></div>
               <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:11,color:"rgba(245,240,232,0.45)",letterSpacing:3,textTransform:"uppercase",marginTop:6}}>{s.l}</div>
