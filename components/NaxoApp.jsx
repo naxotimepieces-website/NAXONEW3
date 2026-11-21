@@ -1116,11 +1116,11 @@ function ServicingPage({navigate}) {
   const m=useIsMobile();const[openFaq,setOpenFaq]=useState(null);
   const services=[
     {icon:"battery",title:"Battery Replacement",price:"From S$15",desc:"Quick and clean battery swap for quartz watches. We use quality cells and test the watch thoroughly before returning it to you.",time:"Same day"},
-    {icon:"wrench",title:"Basic Service",price:"From S$80",desc:"Full movement clean, oil, and regulation. Includes case and bracelet clean. Ideal for watches that are running slow or losing time.",time:"3–5 days"},
-    {icon:"gear",title:"Full Overhaul",price:"From S$180",desc:"Complete disassembly, ultrasonic clean, lubrication, and reassembly of all components. Recommended every 3–5 years for mechanical watches.",time:"1–2 weeks"},
-    {icon:"gem",title:"Case Polishing",price:"From S$40",desc:"Light polishing of case and bracelet to restore lustre. We take a conservative approach — we won't over-polish vintage pieces.",time:"2–3 days"},
+    {icon:"wrench",title:"Basic Service",price:"From S$130",desc:"Full movement clean, oil, and regulation. Includes case and bracelet clean. Ideal for watches that are running slow or losing time.",time:"3–5 days"},
+    {icon:"gear",title:"Full Overhaul",price:"From S$200",desc:"Complete disassembly, ultrasonic clean, lubrication, and reassembly of all components. Recommended every 3–5 years for mechanical watches.",time:"1–2 weeks"},
+    {icon:"gem",title:"Case Polishing",price:"From S$50",desc:"Light polishing of case and bracelet to restore lustre. We take a conservative approach — we won't over-polish vintage pieces.",time:"2–3 days"},
     {icon:"link",title:"Bracelet & Strap",price:"From S$20",desc:"Bracelet sizing, pin replacement, and strap changes. We carry a range of quality leather and NATO straps if you need a replacement.",time:"Same day"},
-    {icon:"shield",title:"Authentication & Valuation",price:"From S$30",desc:"Full inspection and authentication report for your watch. Useful for insurance, resale, or just peace of mind about what you own.",time:"1–2 days"},
+    {icon:"shield",title:"Authentication & Valuation",price:"From S$50",desc:"Full inspection and authentication report for your watch. Useful for insurance, resale, or just peace of mind about what you own.",time:"1–2 days"},
     {icon:"drop",title:"Pressure Testing",price:"From S$25",desc:"Water resistance testing for dive and sport watches. Essential after any service or if you plan to wear your watch near water.",time:"Same day"},
     {icon:"dial",title:"Dial Restoration",price:"Quote on request",desc:"Cleaning and light restoration of dials. We work carefully to preserve patina while removing dirt and damage. Pricing depends on condition.",time:"1–2 weeks"},
   ];
