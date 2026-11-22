@@ -309,6 +309,7 @@ const ICONS={
   repeat:'<path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/>',
   pin:'<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
   cash:'<rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/>',
+  close:'<path d="M18 6 6 18M6 6l12 12"/>',
   box:'<path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>',
   users:'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
   search:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
@@ -1359,6 +1360,42 @@ function WatchPage({navigate,openWatch,goBack,watchId}) {
     </section>}
   </>);
 }
+
+// Announcement popups. Add an entry to show a poster on first visit each session; it hides itself after `end` (SGT).
+const POPUPS=[
+  {id:"clarke-quay-2026-11",img:"/popup-clarke-quay.jpg",alt:"The Retro Factory at Clarke Quay, 21-22 November 2026",label:"Pop-up this weekend",cta:"Event details",page:"events",start:"2026-11-01",end:"2026-11-22"},
+];
+function EventPopup({navigate}) {
+  const m=useIsMobile();
+  const[pop,setPop]=useState(null);
+  const closeRef=useRef(null);
+  useEffect(()=>{
+    if(/^#watch-/.test(window.location.hash))return;
+    const now=Date.now();
+    const p=POPUPS.find(x=>now>=new Date(x.start+"T00:00:00+08:00")&&now<=new Date(x.end+"T23:59:59+08:00"));
+    if(!p)return;
+    try{if(sessionStorage.getItem("naxo-popup-"+p.id))return}catch(e){}
+    const t=setTimeout(()=>setPop(p),1400);return()=>clearTimeout(t)},[]);
+  const close=()=>{try{sessionStorage.setItem("naxo-popup-"+pop.id,"1")}catch(e){}setPop(null)};
+  useEffect(()=>{
+    if(!pop)return;
+    const k=e=>{if(e.key==="Escape"){try{sessionStorage.setItem("naxo-popup-"+pop.id,"1")}catch(x){}setPop(null)}};
+    window.addEventListener("keydown",k);const prev=document.body.style.overflow;document.body.style.overflow="hidden";
+    if(closeRef.current)closeRef.current.focus();
+    return()=>{window.removeEventListener("keydown",k);document.body.style.overflow=prev}},[pop]);
+  if(!pop)return null;
+  return(
+    <div onClick={close} style={{position:"fixed",inset:0,zIndex:200,background:"rgba(15,26,48,0.74)",display:"flex",alignItems:"center",justifyContent:"center",padding:m?16:24,animation:"fadeIn 0.35s ease"}}>
+      <div role="dialog" aria-modal="true" aria-label={pop.alt} onClick={e=>e.stopPropagation()} style={{position:"relative",background:BRAND.warmWhite,boxShadow:"0 30px 80px rgba(0,0,0,0.45)",maxWidth:"100%",display:"flex",flexDirection:"column"}}>
+        <button ref={closeRef} onClick={close} aria-label="Close" style={{position:"absolute",top:m?8:-14,right:m?8:-14,width:36,height:36,borderRadius:"50%",border:"none",background:BRAND.navy,color:BRAND.cream,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 2px 10px rgba(0,0,0,0.35)",zIndex:2}}><Icon name="close" size={16}/></button>
+        <img src={pop.img} alt={pop.alt} style={{display:"block",maxHeight:`calc(100vh - ${m?150:170}px)`,maxWidth:"100%",width:"auto",height:"auto",margin:"0 auto"}}/>
+        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:16,padding:m?"12px 14px":"14px 18px",borderTop:"1px solid rgba(26,39,68,0.1)"}}>
+          <span style={{fontFamily:"'Cormorant Garamond',serif",fontSize:m?13:14,color:BRAND.stone,letterSpacing:2,textTransform:"uppercase"}}>{pop.label}</span>
+          <GoldButton onClick={()=>{try{sessionStorage.setItem("naxo-popup-"+pop.id,"1")}catch(e){}setPop(null);navigate(pop.page)}}>{pop.cta}</GoldButton>
+        </div>
+      </div>
+    </div>);
+}
 export default function NaxoApp() {
   const[page,setPage]=useState("home");const[scrolled,setScrolled]=useState(false);const[transitioning,setTransitioning]=useState(false);
   const[watchId,setWatchId]=useState(null);
@@ -1405,6 +1442,7 @@ export default function NaxoApp() {
       <Footer navigate={navigate}/>
 
       <MascotWidget/>
+      <EventPopup navigate={navigate}/>
     </div>
   );
 }
